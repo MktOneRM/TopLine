@@ -1450,8 +1450,8 @@
 				}
 			} ,
 			messages: {				
-				requerid: "Obrigatório"
-			}
+				required: "Obrigatório"
+			}			
 		}).data("kendoValidator");
         
 		validatorTelColaborador = $("#editorTelColaborador").kendoValidator().data("kendoValidator");
@@ -1507,9 +1507,10 @@
 					return true;					
 				}
 			} ,
-			messages: {
-				requerid: "Obrigatório",
+			messages: {				
+				required: "Obrigatório"
 			}			
+		
 		}).data("kendoValidator");
 		
 		validatorTurno = $("#editorTurnosLoja").kendoValidator().data("kendoValidator");		

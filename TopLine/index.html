@@ -123,7 +123,7 @@
                             <label>Valor da Venda</label>
                         </li>
                         <li>
-                            <input id="RepValor" name="RepValor" type="number" placeholder="Valor" max="9999999" min="0.01" step="0.01" data-bind="valor: atendimento.RepValor" required validationmessage="Requerido" />
+                            <input id="RepValor" name="RepValor" type="number" placeholder="Valor" max="9999999" min="0.01" step="0.01" data-bind="valor: atendimento.RepValor" required  />
                         </li>
                         <li> &nbsp;</li>
 						
@@ -155,7 +155,7 @@
                         <label style="font-size: 16px;font-weight: bold;">Motivo Saída</label>
                     </li>
                     <li>
-                        <select id="MotivosSaida" name="MotivoSaida" data-bind="source: motivos, value: motivo" data-text-field="TmoDescricao" data-value-field="TmoId" placeholder="Selecione o motivo..." required validationmessage="Requerido" style="width: 90%; text-align: center;"></select>
+                        <select id="MotivosSaida" name="MotivoSaida" data-bind="source: motivos, value: motivo" data-text-field="TmoDescricao" data-value-field="TmoId" placeholder="Selecione o motivo..." required  style="width: 90%; text-align: center;"></select>
                     </li>
                 </ul>
             </div>
@@ -236,7 +236,7 @@
                             <label style="font-size: 16px;font-weight: bold;">Motivo Não Venda</label>
                         </li>
                         <li>
-                            <select id="Motivo" name="Motivo" data-bind="source: motivos, value: motivo" data-text-field="MnvDescricao" data-value-field="MnvId" required data-required-msg="Selecione um motivo.." validationmessage="Requerido" style="width: 90%; text-align: center;"></select>
+                            <select id="Motivo" name="Motivo" data-bind="source: motivos, value: motivo" data-text-field="MnvDescricao" data-value-field="MnvId" required data-required-msg="Selecione um motivo.."  style="width: 90%; text-align: center;"></select>
                         </li>
                     </ul>
                 </div>
@@ -1205,38 +1205,38 @@
                             <label>
                                 Nome
                             </label>
-                            <input id="nome" name="Nome" type="text" placeholder="Nome" data-bind="value: colaboradorSelecionado.ColNome" required validationmessage="Requerido"/>
+                            <input id="nome" name="Nome" type="text" placeholder="Nome" data-bind="value: colaboradorSelecionado.ColNome" required />
                         </li>
                         <li>
                             <label>
                                 Sobrenome
                             </label>
-                            <input id="sobrenome" name="SobreNome" type="text" placeholder="Sobrenome" data-bind="value: colaboradorSelecionado.ColSobrenome" required validationmessage="Requerido" />
+                            <input id="sobrenome" name="SobreNome" type="text" placeholder="Sobrenome" data-bind="value: colaboradorSelecionado.ColSobrenome" required  />
                         </li>
                         <li>
                             <label>
                                 Sexo
                             </label>
-                            <select id="sexoId" name="Sexo" data-bind="source: sexos, value: colaboradorSelecionado.ColSexo" data-text-field="Desc" data-value-field="Id" required validationmessage="Requerido" ></select>
+                            <select id="sexoId" name="Sexo" data-bind="source: sexos, value: colaboradorSelecionado.ColSexo" data-text-field="Desc" data-value-field="Id" required  ></select>
                         </li>
                         <li>
                             <label>
                                 Apelido
                             </label>
-                            <input id="apelido" name="Apelido" type="text"  placeholder="Apelido" data-bind="value: colaboradorSelecionado.ColApelido" required validationmessage="Requerido" />
+                            <input id="apelido" name="Apelido" type="text"  placeholder="Apelido" data-bind="value: colaboradorSelecionado.ColApelido" required  />
                         </li>
                         <li>
                             <label>
                                 Nascimento
                             </label>
-                            <input id="dtNascimento" name="DataNascimento" type="date" placeholder="Data de nascimento" min="1930-01-01" data-bind="dateValue: colaboradorSelecionado.ColDtnascimento" required validationmessage="Requerido"/>
+                            <input id="dtNascimento" name="DataNascimento" type="date" placeholder="Data de nascimento" min="1930-01-01" data-bind="dateValue: colaboradorSelecionado.ColDtnascimento" required />
                         </li>
 
                         <li>
                             <label>
                                 Email
                             </label>
-                            <input id="email" name="Email" type="email" placeholder="e.g. meunome@exemplo.com.br" maxlength="60" size="60" data-bind="value: colaboradorSelecionado.ColEmail" required validationmessage="Requerido" data-email-msg="Formato de E-mail inválido!"/>
+                            <input id="email" name="Email" type="email" placeholder="e.g. meunome@exemplo.com.br" maxlength="60" size="60" data-bind="value: colaboradorSelecionado.ColEmail" required  data-email-msg="Formato de E-mail inválido!"/>
                         </li>
                     </ul>
                 </div>
@@ -1247,7 +1247,7 @@
                             <label>
                                 Entrada
                             </label>
-                            <input id="dtEntrada" name="DataEntrada" type="date" placeholder="Data de Entrada" min="2000-01-01" max="2020-12-31" data-bind="dateValue: colaboradorSelecionado.ColDtentrada" required validationmessage="Requerido"/>
+                            <input id="dtEntrada" name="DataEntrada" type="date" placeholder="Data de Entrada" min="2000-01-01" max="2020-12-31" data-bind="dateValue: colaboradorSelecionado.ColDtentrada" required />
                         </li>
                         <li>
                             <label>
@@ -1425,19 +1425,19 @@
                             <label>
                                 Código
                             </label>
-                            <input id="LojCodigo" name="Código" type="text" maxlength="10" size="10" placeholder="Código" data-bind="value: lojaSelecionada.LojCodigo" required validationmessage="Requerido"/>
+                            <input id="LojCodigo" name="Código" type="text" maxlength="10" size="10" placeholder="Código" data-bind="value: lojaSelecionada.LojCodigo" required />
                         </li>
                         <li>
                             <label>
                                 Razão Social
                             </label>
-                            <input id="LojRazaosocial" name="RazaoSocial" placeholder="Razão Social" type="text" maxlength="60" size="60" data-bind="value: lojaSelecionada.LojRazaosocial" required validationmessage="Requerido" />
+                            <input id="LojRazaosocial" name="RazaoSocial" placeholder="Razão Social" type="text" maxlength="60" size="60" data-bind="value: lojaSelecionada.LojRazaosocial" required  />
                         </li>
                         <li>
                             <label>
                                 Nome Fantasia
                             </label>
-                            <input id="LojNomefantasia" name="NomeFantasia" placeholder="Nome Fantasia" maxlength="50" size="50" type="text" data-bind="value: lojaSelecionada.LojNomefantasia" required validationmessage="Requerido" />
+                            <input id="LojNomefantasia" name="NomeFantasia" placeholder="Nome Fantasia" maxlength="50" size="50" type="text" data-bind="value: lojaSelecionada.LojNomefantasia" required  />
                         </li>
                         <li>
                             <label>
@@ -1646,13 +1646,13 @@
                             <label>
                                 Qtde. de Vendas
                             </label>
-                            <input id="qtdeVendas" name="QtdeVendas" type="number" placeholder="Quantidade de vendas" maxlength="4" size="4" data-bind="value: fechamentoSelecionado.FecQtInfVenda" required validationmessage="Requerido"/>
+                            <input id="qtdeVendas" name="QtdeVendas" type="number" placeholder="Quantidade de vendas" maxlength="4" size="4" data-bind="value: fechamentoSelecionado.FecQtInfVenda" required />
                         </li>
                         <li>
                             <label>
                                 Valor Total Vendas
                             </label>
-                            <input id="vlTotalVendas" name="VlTotalVendas" type="number" placeholder="Valor Total Vendas" maxlength="10" size="10" min="0.01" step="0.01" data-bind="valor: fechamentoSelecionado.FecVlInfVenda" required validationmessage="Requerido" />
+                            <input id="vlTotalVendas" name="VlTotalVendas" type="number" placeholder="Valor Total Vendas" maxlength="10" size="10" min="0.01" step="0.01" data-bind="valor: fechamentoSelecionado.FecVlInfVenda" required  />
                         </li>
                         <li>
                             <label>
@@ -1754,25 +1754,25 @@
                     <label>
                         Turno
                     </label>
-                    <select id="TufId" name="TufId" data-bind="source: turnos, value: TufId" data-text-field="TufDescricao" data-value-field="TufId" required validationmessage="Requerido"></select>
+                    <select id="TufId" name="TufId" data-bind="source: turnos, value: TufId" data-text-field="TufDescricao" data-value-field="TufId" required ></select>
                 </li>
                 <li>
                     <label>
                         Escala
                     </label>
-                    <select id="DsfId" name="DsfId" data-bind="source: diasFunc, value: DsfId" data-text-field="DsfDescricao" data-value-field="DsfId" required validationmessage="Requerido"></select>
+                    <select id="DsfId" name="DsfId" data-bind="source: diasFunc, value: DsfId" data-text-field="DsfDescricao" data-value-field="DsfId" required ></select>
                 </li>
                 <li>
                     <label>
                         Hora Inicial
                     </label>
-                    <input id="#= uid #" name="EscHrInicial" type="time" data-bind="value: EscHrInicial" required validationmessage="Requerido"/>
+                    <input id="#= uid #" name="EscHrInicial" type="time" data-bind="value: EscHrInicial" required />
                 </li>
                 <li>
                     <label>
                         Hora Final
                     </label>
-                    <input id="#= uid #" name="EscHrFinal" type="time" data-bind="value: EscHrFinal" required validationmessage="Requerido"/>
+                    <input id="#= uid #" name="EscHrFinal" type="time" data-bind="value: EscHrFinal" required />
                 </li>
             </ul>
             <div id="divSubTitulo"></div>
@@ -1829,19 +1829,19 @@
                         <label>
                             Tipo
                         </label>
-                        <select id="TteId" class="TteId" name="TteId" data-bind="source: tiposTels, value: TteId" data-text-field="DescricaoTipo" data-value-field="IdTipo" placeholder="Tipo de Telefone" required validationmessage="Requerido"></select>
+                        <select id="TteId" class="TteId" name="TteId" data-bind="source: tiposTels, value: TteId" data-text-field="DescricaoTipo" data-value-field="IdTipo" placeholder="Tipo de Telefone" required ></select>
                     </li>
                     <li>
                         <label>
                             Número
                         </label>
-                        <input id="#= uid #" name="Telefone" type="text" placeholder="Telefone" data-bind="value: TelNumero" required validationmessage="Requerido"/>
+                        <input id="#= uid #" name="Telefone" type="text" placeholder="Telefone" data-bind="value: TelNumero" required />
                     </li>
                     <li>
                         <label>
                             Operadora
                         </label>
-                        <select id="OpeId" name="OpeId" data-bind="source: tiposOper, value: OpeId" data-text-field="DescricaoTipo" data-value-field="IdTipo" placeholder="Operadora" required validationmessage="Requerido"></select>
+                        <select id="OpeId" name="OpeId" data-bind="source: tiposOper, value: OpeId" data-text-field="DescricaoTipo" data-value-field="IdTipo" placeholder="Operadora" required ></select>
                     </li>
                     <li>
                         <label>
@@ -1861,7 +1861,7 @@
                     <label>
                         Qtde
                     </label>
-                    <input id="#= uid #" name="Quantidade" type="number" placeholder="Qtd." data-bind="value: FcoQtdCliente" required validationmessage="Requerido"/>
+                    <input id="#= uid #" name="Quantidade" type="number" placeholder="Qtd." data-bind="value: FcoQtdCliente" required />
                 </li>
                 <li>
                     <label>
