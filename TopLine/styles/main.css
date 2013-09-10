@@ -736,6 +736,19 @@ label
     z-index:99;
 }
 
+#atendimento_rigth ul {
+	list-style-type:none;
+	padding: 0;
+	margin: 0;
+	text-align:center;
+}
+
+#atendimento_rigth li {
+	padding: 0;
+	margin: 0;
+	text-align:center;
+}
+
 #atendimento_nome
 {
 	color: #f2f2f2;
@@ -863,7 +876,7 @@ label
 	border-radius: 2px;
 }
 
-#btn:hover
+.btn:hover
 {
 	background-color: #2d8402;
     color:#ffffff;

@@ -1,3 +1,5 @@
+
+(function($, undefined) {
 function id(element) {
 	return document.getElementById(element);
 }
@@ -77,3 +79,4 @@ geolocationApp.prototype = {
 		}
 	},
 }
+})(jQuery);
