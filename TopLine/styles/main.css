@@ -749,7 +749,7 @@ label
 	text-align:center;
 }
 
-#atendimento_nome
+.atendimento_nome
 {
 	color: #f2f2f2;
 	background-color: #2d8402;
@@ -760,7 +760,7 @@ label
 	margin-bottom: 20px;
 }
 
-#atendimento_nome li
+.atendimento_nome li
 {
 	color: #f2f2f2;
 	background-color: #2d8402;
@@ -840,7 +840,7 @@ label
 	border-radius: 2px;
 }
 
-#salvarMaior
+.salvarMaior
 {
 	background-color: #2d8402;
 	font-size: 16px;
@@ -864,7 +864,7 @@ label
 	border-radius: 2px;
 }
 
-#cancelarMaior
+.cancelarMaior
 {
 	background-color: #681212;
 	font-size: 16px;
@@ -1466,6 +1466,7 @@ label
 {
 	padding: 0;
 	margin: 0;
+	text-align:center;
 }
 
 #sairdaFila_View li
@@ -1514,6 +1515,7 @@ label
 {
 	padding: 0;
 	margin: 0;
+	text-align:center;
 }
 
 #entrarNaFila_View li
@@ -1542,6 +1544,7 @@ label
 {
 	padding: 0;
 	margin: 0;
+	text-align:center;
 }
 
 #MotNaoVenda-view li
@@ -1671,3 +1674,6 @@ label
     background: red;
 }
 
+.centro {
+	text-align:center;
+}

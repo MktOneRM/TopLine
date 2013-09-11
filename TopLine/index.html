@@ -102,7 +102,7 @@
                 <div id="atendimento_rigth">
                     <ul>
                         <li>
-                            <div id="atendimento_nome">
+                            <div class="atendimento_nome">
                                 <h1 class="fila-nome" data-bind="text: vendedorSelecionado.ColNome"></h1>
                                 <h2 class="fila-turno" data-bind="text: vendedorSelecionado.ColTurno"></h2>
                             </div>
@@ -126,9 +126,7 @@
                             <input id="RepValor" name="RepValor" type="number" placeholder="Valor" max="9999999" min="0.01" step="0.01" data-bind="valor: atendimento.RepValor" required  />
                         </li>
                         <li> &nbsp;</li>
-						
-						
-						
+
                         <li>
                             <a id="salvar" data-role="button">Salvar</a>
                         </li>
@@ -144,8 +142,8 @@
         <!--Saida da Fila da Vez-->
         <div id="sairdaFila_View" data-role="view" data-title="TOP LINE PRO" data-layout="update-layout" data-model="viewModel" data-before-show="sairFilaViewShow" data-init="sairFilaViewInit">
             <div>
-                <ul align="center">
-                    <li id="atendimento_nome">
+                <ul>
+                    <li class="atendimento_nome">
                         <h1 class="fila-nome" data-bind="text: vendedorSelecionado.ColNome"></h1>
                         <h2 class="fila-turno" data-bind="text: vendedorSelecionado.ColTurno"></h2>
                         <div>&nbsp;</div>
@@ -155,19 +153,19 @@
                         <label style="font-size: 16px;font-weight: bold;">Motivo Saída</label>
                     </li>
                     <li>
-                        <select id="MotivosSaida" name="MotivoSaida" data-bind="source: motivos, value: motivo" data-text-field="TmoDescricao" data-value-field="TmoId" placeholder="Selecione o motivo..." required  style="width: 90%; text-align: center;"></select>
+                        <select id="MotivosSaida" name="MotivoSaida" data-bind="source: motivos, value: motivo" data-text-field="TmoDescricao" data-value-field="TmoId" style="width: 90%; text-align: center;"></select>
                     </li>
                 </ul>
             </div>
             <div style="padding-top: 5px;"></div>
-            <div align="center">
+            <div class="centro">
                 <ul>
                     <li>
-                        <a id="salvarMaior" data-role="button">Salvar</a>
+                        <a id="salvarSaida" class="salvarMaior" data-role="button">Salvar</a>
                     </li>
                     <li>&nbsp;</li>
                     <li>
-                        <a id="cancelarMaior" data-role="button">Cancelar</a>
+                        <a id="cancelarSaida" class="cancelarMaior" data-role="button">Cancelar</a>
                     </li>
                 </ul>
             </div>
@@ -176,8 +174,8 @@
         <!--Entrada na Fila da Vez-->
         <div id="entrarNaFila_View" data-role="view" data-title="TOP LINE PRO" data-layout="update-layout" data-model="viewModel" data-before-show="entrarFilaViewShow" data-init="entrarFilaViewInit">
             <div>
-                <ul align="center">
-                    <li id="atendimento_nome">
+                <ul>
+                    <li class="atendimento_nome">
                         <h1 class="fila-nome" data-bind="text: vendedorSelecionado.ColNome"></h1>
                         <h2 class="fila-turno" data-bind="text: vendedorSelecionado.ColTurno"></h2>
                         <div>&nbsp;</div>
@@ -194,28 +192,28 @@
             <div style="padding-top: 5px;"></div>
             <div id="editorClientesContactados" style="display: none;">
                 <ul id="formEntrarFila" data-role="listview" data-type="group">
-                    <div >
+                    <li>
                         <ul>
                             <li class="subTitulo" style="padding:5px;margin:0;">
-                                <a id="novoContato" class="subTitulo">Novo Contato</a>
-                                <a id="novoContato" data-role="detailbutton" class="subTitulo" data-style="rowinsert">&nbsp;</a>
+                                <a class="subTitulo">Novo Contato</a>
+                                <a id="novoContato" data-role="detailbutton" class="subTitulo" data-style="rowinsert"></a>
                             </li>
                         </ul>
-                    </div>
+                    </li>
                     <div>
                         <ul id="editorClientesContactadosLista" data-bind="source: frequenciaContato" data-role="listview" data-template="tAtuTiposContato"></ul>
                     </div>
                 </ul>
             </div>
             <div style="padding-top: 5px;"></div>
-            <div align="center">
+            <div class="center">
                 <ul>
                     <li>
-                        <a id="salvarMaior" data-role="button">Salvar</a>
+                        <a id="salvarEntrada" class="salvarMaior" data-role="button">Salvar</a>
                     </li>
                     <li>&nbsp;</li>
                     <li>
-                        <a id="cancelarMaior" data-role="button">Cancelar</a>
+                        <a id="cancelarEntrada" class="cancelarMaior" data-role="button">Cancelar</a>
                     </li>
                 </ul>
             </div>
@@ -225,8 +223,8 @@
         <div id="MotNaoVenda-view" data-role="view" data-title="TOP LINE PRO" data-layout="update-layout" data-model="viewModelNaoVenda" data-before-show="naoVendaViewShow" data-init="naoVendaViewInit">
             <div id="formMotivosNaoVenda">
                 <div>
-                    <ul align="center">
-                        <li id="atendimento_nome">
+                    <ul>
+                        <li class="atendimento_nome">
                             <h1 class="fila-nome" data-bind="text: vendedorSelecionado.ColNome"></h1>
                             <h2 class="fila-turno" data-bind="text: vendedorSelecionado.ColTurno"></h2>
                             <div>&nbsp;</div>
@@ -244,11 +242,11 @@
                 <div align="center">
                     <ul>
                         <li>
-                            <a id="salvarMaior" data-role="button">Salvar</a>
+                            <a id="salvarNaoVenda" class="salvarMaior" data-role="button">Salvar</a>
                         </li>
                         <li>&nbsp;</li>
                         <li>
-                            <a id="cancelarMaior" data-role="button">Cancelar</a>
+                            <a id="cancelarNaoVenda" class="cancelarMaior" data-role="button">Cancelar</a>
                         </li>
                     </ul>
                 </div>

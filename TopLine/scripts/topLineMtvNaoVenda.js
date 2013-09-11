@@ -89,7 +89,7 @@
 	function naoVendaViewInit(e) {
 		var view = e.view;
         
-		view.element.find("#salvarMaior").data("kendoMobileButton").bind("click", function() {	
+		view.element.find("#salvarNaoVenda").data("kendoMobileButton").bind("click", function() {	
 			viewModelNaoVenda.dsNaoVenda.one("change", function() {	
 				//Marca o checkbox como default
 				document.getElementById("chkVendeu").checked = "checked";
@@ -101,7 +101,7 @@
 			viewModelNaoVenda.dsNaoVenda.sync();
 		});
         
-		view.element.find("#cancelarMaior").data("kendoMobileButton").bind("click", function(e) {
+		view.element.find("#cancelarNaoVenda").data("kendoMobileButton").bind("click", function(e) {
 			e.preventDefault();
 			viewModelNaoVenda.dsNaoVenda.one("change", function() {
 				document.getElementById("chkVendeu").checked = "checked";

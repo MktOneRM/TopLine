@@ -1358,7 +1358,9 @@
 		view.element.find("#salvar").data("kendoMobileButton").bind("click", function() {	
 			viewModel.dsAtendimento.one("change", function() {				
 				view.loader.hide();
-				app.navigate("#dentroFila-view"); 
+				if (validatorAtendimento.validate()) {
+					app.navigate("#dentroFila-view"); 
+				}
 			});
             
 			view.loader.show();
@@ -1459,8 +1461,10 @@
 		view.element.find("#btnCreate").data("kendoMobileButton").bind("click", function() {			
 			dsColaborador.one("change", function() {
 				dsTelColaborador.sync();
-				view.loader.hide();
-				app.navigate("#colaboradores-view"); 
+				view.loader.hide();			
+				if (validatorColaborador.validate() && validatorTelColaborador.validate()) {				
+					app.navigate("#colaboradores-view"); 
+				}
 			});
             
 			view.loader.show();
@@ -1536,7 +1540,9 @@
 			dsLoja.one("change", function() {				
 				view.loader.hide();
 				dsEscala.sync(); 
-				app.navigate("#detalhesLoja-view");
+				if (validatorLoja.validate() && validatorTurno.validate()) {
+					app.navigate("#detalhesLoja-view");
+				}
 			});        
 			
 			view.loader.show();
@@ -1568,7 +1574,7 @@
 	function sairFilaViewInit(e) {
 		var view = e.view;
        
-		view.element.find("#salvarMaior").data("kendoMobileButton").bind("click", function() {	
+		view.element.find("#salvarSaida").data("kendoMobileButton").bind("click", function() {	
 			viewModel.dsVendFila.one("change", function() {				
 				view.loader.hide();
 				app.navigate("#dentroFila-view") 
@@ -1578,7 +1584,7 @@
 			viewModel.dsVendFila.sync();
 		});
         
-		view.element.find("#cancelarMaior").data("kendoMobileButton").bind("click", function(e) {
+		view.element.find("#cancelarSaida").data("kendoMobileButton").bind("click", function(e) {
 			e.preventDefault();
 			viewModel.dsVendFila.one("change", function() {
 				view.loader.hide();
@@ -1612,7 +1618,7 @@
 	function entrarFilaViewInit(e) {
 		var view = e.view;
         
-		view.element.find("#salvarMaior").data("kendoMobileButton").bind("click", function() {	
+		view.element.find("#salvarEntrada").data("kendoMobileButton").bind("click", function() {	
 			viewModel.dsVendFila.one("change", function() {				
 				document.getElementById('editorClientesContactados').style.display = "none";
 				document.getElementById('editorClientesContactadosLista').style.display = "none";
@@ -1623,7 +1629,7 @@
 			viewModel.dsVendFila.sync();
 		});
         
-		view.element.find("#cancelarMaior").data("kendoMobileButton").bind("click", function(e) {
+		view.element.find("#cancelarEntrada").data("kendoMobileButton").bind("click", function(e) {
 			e.preventDefault();
 			viewModel.dsVendFila.one("change", function() {
 				document.getElementById('editorClientesContactados').style.display = "none";
