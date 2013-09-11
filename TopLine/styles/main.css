@@ -276,22 +276,24 @@ label
 	padding-right: 5px; 
 }
 
-#imgMenuConsulta
+.imgMenuConsulta
 {
 	width: 30px; 
 	height: 30px; 
 	float: right;
+	text-align:right;
 }
 
-#imgMenuDuploConsulta
+.imgMenuDuploConsulta
 {
 	width: 25px; 
 	height: 30px; 
 	float: right;
 	padding-top: 4px;
+	text-align:right;
 }
 
-#menu
+.menu
 {
 	text-decoration: none;
 	padding-left: 10px;
@@ -300,7 +302,7 @@ label
 	padding-right: 5px;
 }
 
-#menuPrincipal
+.menuPrincipal
 {
 	text-decoration: none;
 	padding-left: 10px;
@@ -309,7 +311,7 @@ label
 	padding-right: 5px;
 }
 
-#menuConsulta
+.menuConsulta
 {
 	text-decoration: none;
 	padding-left: 20px;
@@ -317,7 +319,7 @@ label
 	font-size: 18px;
 }
 
-#subMenuConsulta
+.subMenuConsulta
 {
 	text-decoration: none;
 	padding-left: 20px;
@@ -610,6 +612,7 @@ label
 	border: 0;
 	font-size: 20px;
 	font-weight: bold;
+	text-align:center;
 }
 
 .fila-turno
@@ -840,9 +843,8 @@ label
 	border-radius: 2px;
 }
 
-.salvarMaior
+#salvarEntrada
 {
-	background-color: #2d8402;
 	font-size: 16px;
 	color: #f2f2f2;
 	text-align: center;
@@ -850,6 +852,67 @@ label
 	border: 1;
 	-webkit-border-radius: 2px;
 	border-radius: 2px;
+	background-color: #2d8402;
+}
+
+#cancelarEntrada
+{
+	font-size: 16px;
+	color: #f2f2f2;
+	text-align: center;
+	width: 90%;
+	border: 1;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	background-color: #681212;
+}
+
+#salvarSaida
+{
+	font-size: 16px;
+	color: #f2f2f2;
+	text-align: center;
+	width: 90%;
+	border: 1;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	background-color: #2d8402;
+}
+
+#cancelarSaida
+{
+	font-size: 16px;
+	color: #f2f2f2;
+	text-align: center;
+	width: 90%;
+	border: 1;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	background-color: #681212;
+}
+
+#salvarNaoVenda
+{
+	font-size: 16px;
+	color: #f2f2f2;
+	text-align: center;
+	width: 90%;
+	border: 1;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	background-color: #2d8402;
+}
+
+#cancelarNaoVenda
+{
+	font-size: 16px;
+	color: #f2f2f2;
+	text-align: center;
+	width: 90%;
+	border: 1;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	background-color: #681212;
 }
 
 #cancelar
@@ -864,31 +927,19 @@ label
 	border-radius: 2px;
 }
 
-.cancelarMaior
-{
-	background-color: #681212;
-	font-size: 16px;
-	color: #f2f2f2;
-	text-align: center;
-	width: 90%;
-	border: 1;
-	-webkit-border-radius: 2px;
-	border-radius: 2px;
-}
-
 .btn:hover
 {
 	background-color: #2d8402;
     color:#ffffff;
 }
 
-#btnCreate:hover
+.btnCreate:hover
 {
 	background-color: #2d8402;
     color:#ffffff;
 }
 
-#btnCancel:hover
+.btnCancel:hover
 {
 	background-color: #2d8402;
     color:#ffffff;
@@ -915,7 +966,7 @@ label
     z-index:0;
 }
 
-#divSubTitulo
+.divSubTitulo
 {
 	font-size: 16px;
 	font-weight: bold;
@@ -1343,7 +1394,7 @@ label
 	color: #333333;
 }
 
-#divinfoFoto
+.divinfoFoto
 {
 	font-size: 16px;
 	font-weight: bold;
@@ -1403,18 +1454,18 @@ label
 }
 
 /*Desempenho - Consultas*/
-#tableConsultaHeader
+.tableConsultaHeader
 {
 	width: 100%;
 	padding: 0;
 }
 
-#tableConsultaHeader li
+.tableConsultaHeader li
 {
 	float: left;
 	display: block;
 	font-weight: bold;
-	background: #2d8402;
+	background-color: #2d8402;
 	color: #fff;
 	padding: 10px 0 10px 0;
 	border: 1px solid #DDDDDD;
@@ -1422,7 +1473,7 @@ label
 	font-size: 13px;
 }
 
-#tableConsulta
+.tableConsulta
 {
 	padding: 0;
 	margin: 0;
@@ -1430,7 +1481,7 @@ label
 	width: 100%;
 }
 
-#tableConsulta li
+.tableConsulta li
 {
 	padding: 0;
 	font-size: 12px;
