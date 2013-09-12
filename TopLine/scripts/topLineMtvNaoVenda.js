@@ -1,9 +1,4 @@
 (function($, undefined) {
-    
-    var baseUrl = "http://revenue.azurewebsites.net/api";
-    //var baseUrl = "http://www.revenuemachine.com.br/mobile/api";
-    //var baseUrl = "http://localhost:63504/api";
-
 
 	//Schema Motivos não venda
 	var scMotivosNaoVenda = { 
@@ -35,7 +30,7 @@
 	var dsMotivosNaoVenda = new kendo.data.DataSource({                    
 		transport: {						
 			read:  {
-				url: baseUrl + "/RmMotNaoVenda",							
+				url: viewModelUrl.serviceUrl + "/RmMotNaoVenda",							
 				type:"GET"      
 				,contentType: "application/json"
 				,dataType: "json"
@@ -58,7 +53,7 @@
 	var dsNaoVenda = new kendo.data.DataSource({                    
 		transport: {						
 			create:  {
-				url: baseUrl + "/RmNaoVenda",							
+				url: viewModelUrl.serviceUrl + "/RmNaoVenda",							
 				type:"POST"      
 				,contentType: "application/json"
 				,dataType: "json"

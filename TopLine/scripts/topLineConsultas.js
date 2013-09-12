@@ -1,8 +1,4 @@
 (function($, undefined) {
-	
-	var baseUrl = "http://revenue.azurewebsites.net/api";
-	//var baseUrl = "http://www.revenuemachine.com.br/mobile/api";
-	//var baseUrl = "http://localhost:63504/api";
 
 	kendo.data.binders.cabecalho = kendo.data.Binder.extend({
 		init: function (element, bindings, options) {
@@ -128,7 +124,7 @@
 	var dsDesRealizadoCol = new kendo.data.DataSource({                    
 		transport: {						
 			read:  {
-				url: baseUrl + "/RmDesempenho",							
+				url: viewModelUrl.serviceUrl + "/RmDesempenho",							
 				type:"GET"      
 				,contentType: "application/json"
 				,dataType: "json"
@@ -162,7 +158,7 @@
 	var dsProdutividadeVendasPerdidas = new kendo.data.DataSource({                    
 		transport: {						
 			read:  {
-				url: baseUrl + "/TplProdutividadeVendasPerdidas",							
+				url: viewModelUrl.serviceUrl + "/TplProdutividadeVendasPerdidas",							
 				type:"GET"      
 				,contentType: "application/json"
 				,dataType: "json"
@@ -194,7 +190,7 @@
 	var dsProdutividadeAfastamentos = new kendo.data.DataSource({                    
 		transport: {						
 			read:  {
-				url: baseUrl + "/TplProdutividadeAfastamento",							
+				url: viewModelUrl.serviceUrl + "/TplProdutividadeAfastamento",							
 				type:"GET"      
 				,contentType: "application/json"
 				,dataType: "json"
@@ -226,7 +222,7 @@
 	var dsMetasDiarias = new kendo.data.DataSource({                    
 		transport: {						
 			read:  {
-				url: baseUrl + "/TplMetasDiarias",							
+				url: viewModelUrl.serviceUrl + "/TplMetasDiarias",							
 				type:"GET"      
 				,contentType: "application/json"
 				,dataType: "json"

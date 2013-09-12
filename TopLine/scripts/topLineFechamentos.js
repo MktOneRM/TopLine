@@ -1,10 +1,5 @@
 (function($, undefined) {
 
-    var baseUrl = "http://revenue.azurewebsites.net/api";
-    //var baseUrl = "http://www.revenuemachine.com.br/mobile/api";
-    //var baseUrl = "http://localhost:63504/api";
-
-
 	kendo.data.binders.date = kendo.data.Binder.extend({
 		init: function (element, bindings, options) {
 			kendo.data.Binder.fn.init.call(this, element, bindings, options);
@@ -67,13 +62,13 @@
 	var dsFechamento = new kendo.data.DataSource({
 		transport: {
 			read: {
-				url: baseUrl + "/RmFechamento",							
+				url: viewModelUrl.serviceUrl + "/RmFechamento",							
 				type:"GET",
 				contentType: "application/json",
 				dataType: "json"
 			},
 			create: {
-				url: baseUrl + "/RmFechamento",							
+				url: viewModelUrl.serviceUrl + "/RmFechamento",							
 				type:"POST",
 				contentType: "application/json",
 				dataType: "json"
@@ -99,7 +94,7 @@
 	var dsTurnosFunc = new kendo.data.DataSource({                    
 		transport: {
 			read: {
-				url: baseUrl + "/RmTurnoFunc",							
+				url: viewModelUrl.serviceUrl + "/RmTurnoFunc",							
 				type:"GET",
 				contentType: "application/json",
 				dataType: "json"

@@ -1,9 +1,5 @@
 (function($, config) {
 	
-	var baseUrl = "http://revenue.azurewebsites.net/api";
-	//var baseUrl = "http://www.revenuemachine.com.br/mobile/api";
-	//var baseUrl = "http://localhost:63504/api";
-	
 	kendo.data.binders.cep = kendo.data.Binder.extend({
 		refresh: function() {
 			var value = this.bindings["cep"].get();
@@ -589,26 +585,26 @@
 	var dsVendFila = new kendo.data.DataSource({                    
 		transport: {						
 			read:  {
-				url: baseUrl + "/RmFilaLoja",							
+				url: viewModelUrl.serviceUrl + "/RmFilaLoja",							
 				type:"GET",
 				contentType: "application/json",
 				dataType: "json"
 			} 
 			,
 			update: {
-				url:baseUrl + "/RmFilaLoja",
+				url:viewModelUrl.serviceUrl + "/RmFilaLoja",
 				type:"PUT"
 				,contentType:"application/json"
 				,dataType: "json"
 			},
 			create: {
-				url:baseUrl + "/RmFilaLoja",							
+				url:viewModelUrl.serviceUrl + "/RmFilaLoja",							
 				type:"POST",
 				contentType: "application/json",
 				dataType: "json"
 			},
 			destroy: {
-				url:baseUrl + "/RmFilaLoja"                            
+				url:viewModelUrl.serviceUrl + "/RmFilaLoja"                            
 				,type:"DELETE"
 				,contentType:"application/json"   
 				,dataType: "json"
@@ -640,13 +636,13 @@
 	var dsVendForaFila = new kendo.data.DataSource({                    
 		transport: {						
 			read:  {
-				url: baseUrl + "/RmFilaLoja",							
+				url: viewModelUrl.serviceUrl + "/RmFilaLoja",							
 				type:"GET"      
 				,contentType: "application/json"
 				,dataType: "json"
 			},
 			update: {
-				url: baseUrl + "/RmFilaLoja",							
+				url: viewModelUrl.serviceUrl + "/RmFilaLoja",							
 				type:"POST"
 				,contentType:"application/json"
 				,dataType: "json"
@@ -678,7 +674,7 @@
 	var dsTiposMovto = new kendo.data.DataSource({                    
 		transport: {						
 			read:  {
-				url: baseUrl + "/RmTipoMovimento",							
+				url: viewModelUrl.serviceUrl + "/RmTipoMovimento",							
 				type:"GET"      
 				,contentType: "application/json"
 				,dataType: "json"
@@ -702,7 +698,7 @@
 	var dsTiposContato = new kendo.data.DataSource({                    
 		transport: {						
 			read:  {
-				url: baseUrl + "/RmTipoContato",							
+				url: viewModelUrl.serviceUrl + "/RmTipoContato",							
 				type:"GET"      
 				,contentType: "application/json"
 				,dataType: "json"
@@ -727,13 +723,13 @@
 	var dsFrequenciaContato = new kendo.data.DataSource({                    
 		transport: {						
 			read:  {
-				url: baseUrl + "/RmFrequenciaContato",							
+				url: viewModelUrl.serviceUrl + "/RmFrequenciaContato",							
 				type:"GET"      
 				,contentType: "application/json"
 				,dataType: "json"
 			},
 			update:  {
-				url: baseUrl + "/RmFrequenciaContato",							
+				url: viewModelUrl.serviceUrl + "/RmFrequenciaContato",							
 				type:"POST"      
 				,contentType: "application/json"
 				,dataType: "json"
@@ -778,7 +774,7 @@
 	var dsTurnosLoja = new kendo.data.DataSource({                    
 		transport: {						
 			read:  {
-				url: baseUrl + "/RmTurnoFunc",							
+				url: viewModelUrl.serviceUrl + "/RmTurnoFunc",							
 				type:"GET"      
 				,contentType: "application/json"
 				,dataType: "json"
@@ -827,19 +823,19 @@
 	var dsEscala = new kendo.data.DataSource({                    
 		transport: {	
 			read:  {
-				url: baseUrl + "/RmEscalas",							
+				url: viewModelUrl.serviceUrl + "/RmEscalas",							
 				type:"GET"      
 				,contentType: "application/json"
 				,dataType: "json"
 			},
 			create:  {
-				url: baseUrl + "/RmEscalas",							
+				url: viewModelUrl.serviceUrl + "/RmEscalas",							
 				type:"POST"      
 				,contentType: "application/json"
 				,dataType: "json"
 			},
 			update:  {
-				url: baseUrl + "/RmEscalas",							
+				url: viewModelUrl.serviceUrl + "/RmEscalas",							
 				type:"PUT"      
 				,contentType: "application/json"
 				,dataType: "json"
@@ -870,7 +866,7 @@
 	var dsCargos = new kendo.data.DataSource({                    
 		transport: {						
 			read:  {
-				url: baseUrl + "/RmCargo",							
+				url: viewModelUrl.serviceUrl + "/RmCargo",							
 				type:"GET"      
 				,contentType: "application/json"
 				,dataType: "json"
@@ -898,13 +894,13 @@
 	var dsAtendimento = new kendo.data.DataSource({                    
 		transport: {						
 			read:  {
-				url: baseUrl + "/RmAtendimentoRepositorio",							
+				url: viewModelUrl.serviceUrl + "/RmAtendimentoRepositorio",							
 				type:"GET"      
 				,contentType: "application/json"
 				,dataType: "json"
 			},
 			create: {
-				url:baseUrl + "/RmAtendimentoRepositorio"													
+				url:viewModelUrl.serviceUrl + "/RmAtendimentoRepositorio"													
 				,type:"POST"                            
 				,contentType:"application/json"
 				,dataType: "json" 
@@ -925,13 +921,13 @@
 	var dsLoja = new kendo.data.DataSource({                    
 		transport: {						
 			read:  {
-				url: baseUrl + "/RmLoja",
+				url: viewModelUrl.serviceUrl + "/RmLoja",
 				type:"GET",
 				contentType: "application/json",
 				dataType: "json"
 			},
 			update: {
-				url:baseUrl + "/RmLoja",							
+				url:viewModelUrl.serviceUrl + "/RmLoja",							
 				type:"PUT"
 				,contentType:"application/json"
 				,dataType: "json"
@@ -965,19 +961,19 @@
 	var dsColaborador = new kendo.data.DataSource({
 		transport: {
 			read: {
-				url: baseUrl + "/RmColaborador",							
+				url: viewModelUrl.serviceUrl + "/RmColaborador",							
 				type:"GET",
 				contentType: "application/json",
 				dataType: "json"
 			},
 			create: {
-				url: baseUrl + "/RmColaborador",							
+				url: viewModelUrl.serviceUrl + "/RmColaborador",							
 				type:"POST",
 				contentType: "application/json",
 				dataType: "json"
 			},
 			update: {
-				url: baseUrl + "/RmColaborador",							
+				url: viewModelUrl.serviceUrl + "/RmColaborador",							
 				type:"PUT",
 				contentType: "application/json",
 				dataType: "json"
@@ -1003,25 +999,25 @@
 	var dsTelColaborador = new kendo.data.DataSource({
 		transport: {
 			read: {
-				url: baseUrl + "/RmTelColaborador",							
+				url: viewModelUrl.serviceUrl + "/RmTelColaborador",							
 				type:"GET",
 				contentType: "application/json",
 				dataType: "json"
 			},
 			create: {
-				url: baseUrl + "/RmTelColaborador",							
+				url: viewModelUrl.serviceUrl + "/RmTelColaborador",							
 				type:"POST",
 				contentType: "application/json",
 				dataType: "json"
 			},
 			update: {
-				url: baseUrl + "/RmTelColaborador",							
+				url: viewModelUrl.serviceUrl + "/RmTelColaborador",							
 				type:"PUT",
 				contentType: "application/json",
 				dataType: "json"
 			},
 			destroy: {
-				url: baseUrl + "/RmTelColaborador",							
+				url: viewModelUrl.serviceUrl + "/RmTelColaborador",							
 				type:"DELETE",
 				contentType: "application/json",
 				dataType: "json"
@@ -1053,7 +1049,7 @@
 	var dsTelCompl = new kendo.data.DataSource({                    
 		transport: {						
 			read:  {
-				url: baseUrl + "/RmTelComplementos",
+				url: viewModelUrl.serviceUrl + "/RmTelComplementos",
 				type:"GET"      
 				,contentType: "application/json"
 				,dataType: "json"
@@ -1093,25 +1089,25 @@
 	var dsPeriodoFuncionamento = new kendo.data.DataSource({
 		transport: {
 			read:  {
-				url: baseUrl + "/TplPeriodoFuncionamento",							
+				url: viewModelUrl.serviceUrl + "/TplPeriodoFuncionamento",							
 				type:"GET",
 				contentType: "application/json",
 				dataType: "json"
 			} ,
 			update: {
-				url:baseUrl + "/TplPeriodoFuncionamento",
+				url:viewModelUrl.serviceUrl + "/TplPeriodoFuncionamento",
 				type:"PUT"
 				,contentType:"application/json"
 				,dataType: "json"
 			},
 			create: {
-				url:baseUrl + "/TplPeriodoFuncionamento",							
+				url:viewModelUrl.serviceUrl + "/TplPeriodoFuncionamento",							
 				type:"POST",
 				contentType: "application/json",
 				dataType: "json"
 			},
 			destroy: {
-				url:baseUrl + "/TplPeriodoFuncionamento"                            
+				url:viewModelUrl.serviceUrl + "/TplPeriodoFuncionamento"                            
 				,type:"DELETE"
 				,contentType:"application/json"   
 				,dataType: "json"
@@ -1290,17 +1286,17 @@
 	}
   
 	function turnoFunc() {	
-		dsTurnoFunc.options.transport.read.url = baseUrl + "/RmTurnosFunc";
+		dsTurnoFunc.options.transport.read.url = viewModelUrl.serviceUrl + "/RmTurnosFunc";
 		dsTurnoFunc.read(); 
 	}
     
 	function cargos() {	
-		dsCargo.options.transport.read.url = baseUrl + "/RmCargo";
+		dsCargo.options.transport.read.url = viewModelUrl.serviceUrl + "/RmCargo";
 		dsCargo.read(); 
 	}
     
 	function colaboradores() {
-		//dsColaborador.options.transport.read.url = baseUrl + "/RmColaborador";
+		//dsColaborador.options.transport.read.url = viewModelUrl.serviceUrl + "/RmColaborador";
 		dsColaborador.read(); 	
 	}
 
@@ -1748,7 +1744,7 @@
 	function validacaoDispositivo() {
 		var iptCnpjInicial = document.getElementById("iptCnpjInicial");		  
 		viewModel.idLoja = iptCnpjInicial.value;   
-		dsLoja.options.transport.read.url = baseUrl + "/RmLoja/" + iptCnpjInicial.value;
+		dsLoja.options.transport.read.url = viewModelUrl.serviceUrl + "/RmLoja/" + iptCnpjInicial.value;
 		dsLoja.read(); 		
 	}
 
@@ -1915,7 +1911,7 @@
 	viewModel.dsTiposContato.read();
     
 	viewModel.dsDiasSemana.read();
-
+	
 	$.extend(window, {
 		showVendedoresFila: vendedoresFila,
 		showVendedoresForaFila: vendedoresForaFila,		

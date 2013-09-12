@@ -1,9 +1,13 @@
 (function($, undefined) {
-	var obsUrl = new kendo.data.ObservableObject({
-		baseUrl = "http://revenue.azurewebsites.net/api"
+	var domain = "revenue.azurewebsites.net",
+	serverUrl = "http://" + domain,
+	serviceUrl = serverUrl + "/api";
+	
+	var viewModelUrl = new kendo.data.ObservableObject({
+		serviceUrl: serviceUrl
 	});
 	
 	$.extend(window, {
-		obsUrl: obsUrl
+		viewModelUrl: viewModelUrl
 	});
 })(jQuery);
