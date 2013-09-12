@@ -1,9 +1,9 @@
-(function($, undefined) {
+(function($, config) {
 	
 	var baseUrl = "http://revenue.azurewebsites.net/api";
 	//var baseUrl = "http://www.revenuemachine.com.br/mobile/api";
 	//var baseUrl = "http://localhost:63504/api";
-
+	
 	kendo.data.binders.cep = kendo.data.Binder.extend({
 		refresh: function() {
 			var value = this.bindings["cep"].get();
@@ -216,7 +216,20 @@
 			this.bindings["dateValue"].set(value);
 		}
 	});
-
+		
+	//Função para tramento de erro!
+	function DataSource_Error(e) {
+		console.log(e.status, e);
+		
+		//Fecha o Loader
+		app.pane.loader.hide();
+	}
+	
+	//Função para Sucesso do DataSource
+	function DataSource_Sucess(e){
+		console.log(e, "Sucesso");
+    }
+	
 	//schema
 	var schemaVendedores = { 
 		model: {
@@ -620,6 +633,8 @@
 			: "asc"
 		}
 	});
+	
+	dsVendFila.bind("error", DataSource_Error);
 			
 	//dataSource
 	var dsVendForaFila = new kendo.data.DataSource({                    
@@ -656,7 +671,9 @@
 			"asc" 
 		}	
 	});
-		
+	
+	dsVendForaFila.bind("error", DataSource_Error);
+	
 	//dataSource tipos de movimentação
 	var dsTiposMovto = new kendo.data.DataSource({                    
 		transport: {						
@@ -679,6 +696,8 @@
 		}       
 	});
 
+	dsTiposMovto.bind("error", DataSource_Error);
+	
 	//dataSource tipos de Contato
 	var dsTiposContato = new kendo.data.DataSource({                    
 		transport: {						
@@ -701,6 +720,9 @@
 		}       
 	});
     
+	
+	dsTiposContato.bind("error", DataSource_Error);
+		
 	//DataSource para registro da Frequencia de Contatos.
 	var dsFrequenciaContato = new kendo.data.DataSource({                    
 		transport: {						
@@ -729,6 +751,8 @@
 		}
 	});
   
+	dsFrequenciaContato.bind("error", DataSource_Error);
+	
 	//Dados para Turnos de Funcionamento.
 	var dataTurnosFunc = [
 		{ TufId:1, TufDescricao:"1º Turno"},
@@ -781,6 +805,8 @@
 		}
 	});
     
+	dsTurnosLoja.bind("error", DataSource_Error);
+	
 	//Dados para Dias da Semana de Funcionamento
 	var dataDiasFunc = [
 		{ DsfId:1, DsfDescricao:"Segunda a Sexta"},
@@ -838,6 +864,8 @@
 		}
 	});
     
+	dsEscala.bind("error", DataSource_Error);
+	
 	//dataSource de cargos
 	var dsCargos = new kendo.data.DataSource({                    
 		transport: {						
@@ -864,6 +892,8 @@
 		}
 	});
     
+	dsCargos.bind("error", DataSource_Error);
+		
 	//dataSource Atendimento
 	var dsAtendimento = new kendo.data.DataSource({                    
 		transport: {						
@@ -888,7 +918,9 @@
 		batch: true,
 		schema: scAtendimento,
 	});
-		
+	
+	dsAtendimento.bind("error", DataSource_Error);
+	
 	//Datasource - Loja
 	var dsLoja = new kendo.data.DataSource({                    
 		transport: {						
@@ -902,12 +934,6 @@
 				url:baseUrl + "/RmLoja",							
 				type:"PUT"
 				,contentType:"application/json"
-				,dataType: "json"
-			},
-			destroy: {
-				url:baseUrl + "/RmLoja"                            
-				,type:"DELETE"
-				,contentType:"application/json"   
 				,dataType: "json"
 			},
 			parameterMap: function(data, operation) {
@@ -924,13 +950,16 @@
 		schema: scLoja,
 		change: function(e) {            
 			viewModel.set("lojaSelecionada", e.items[0]);					
-		},
-		error: function(e) {			
-			if (e.errorThrown == "Not Found") {
-				adicionarLoja();                
-			}
 		}
+		/*,
+		error: function(e) {			
+		if (e.errorThrown == "Not Found") {
+		adicionarLoja();                
+		}
+		}*/
 	})
+	
+	dsLoja.bind("error", DataSource_Error);
     
 	//DataSource Colaborador
 	var dsColaborador = new kendo.data.DataSource({
@@ -967,6 +996,8 @@
 		sort: { field: "ColNome", dir: "asc" },
 		schema: scColaborador
 	})
+    
+	dsColaborador.bind("error", DataSource_Error);
     
 	//DataSource Colaborador
 	var dsTelColaborador = new kendo.data.DataSource({
@@ -1016,6 +1047,8 @@
 		}
 	})
  
+	dsTelColaborador.bind("error", DataSource_Error);
+    
 	//dataSource de cargos
 	var dsTelCompl = new kendo.data.DataSource({                    
 		transport: {						
@@ -1054,6 +1087,8 @@
 		}
 	});
      
+	dsTelCompl.bind("error", DataSource_Error);
+	
 	//DataSource Periodo Funcionamento
 	var dsPeriodoFuncionamento = new kendo.data.DataSource({
 		transport: {
@@ -1101,6 +1136,8 @@
 		}        
 	});
     
+	dsPeriodoFuncionamento.bind("error", DataSource_Error);
+	
 	var viewModel = kendo.observable({		
 		dsVendFila: dsVendFila,		
 		dsVendForaFila: dsVendForaFila,			
@@ -1878,40 +1915,7 @@
 	viewModel.dsTiposContato.read();
     
 	viewModel.dsDiasSemana.read();
-    
-	/*Hierarchical DataSource*/
-	function rebindListView(e) {
-		var parentID = e.view.params.parent,
-		element = e.view.element,
-		backButton = element.find('#employee-back'),
-		listView = element.find("#hierarchical-listview").data('kendoMobileListView'),
-		navBar = element.find('#employee-navbar').data('kendoMobileNavBar');
 
-		if (parentID) {
-			employees.fetch(function() {
-				var item = employees.get(parentID);
-				if (item) {
-					backButton.show();
-					navBar.title(item.FullName);
-					listView.setDataSource(item.children);
-				}
-				else {
-					// redirect to root
-					setTimeout(function() {
-						kendo.mobile.application.navigate('#hierarchical-view');
-					}, 0);
-				}
-			});
-		}
-		else {
-			backButton.hide();
-			navBar.title('Employees');
-			listView.setDataSource(employees);
-		}
-
-		e.view.scroller.scrollTo(0, 0);
-	}
-    
 	$.extend(window, {
 		showVendedoresFila: vendedoresFila,
 		showVendedoresForaFila: vendedoresForaFila,		
