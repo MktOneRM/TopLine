@@ -1734,3 +1734,21 @@ label
 .centro {
 	text-align:center;
 }
+
+/*Logins*/
+.buttonArea {
+    text-align: center;
+}
+.login-button {
+    width:85%;
+    max-width:300px;
+    line-height:1.6em;
+}
+
+.logo {
+    background-image:url(../styles/images/appiconRetina.png);
+    background-repeat:no-repeat;
+    width:135px;
+    height:110px;
+    margin:40px auto;
+}

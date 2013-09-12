@@ -207,9 +207,13 @@
 	function editorFecViewInit(e) {
 		var view = e.view;
 
-		validatorFechamento = $("#editorFechamento").kendoValidator().data("kendoValidator");
+		validatorFechamento = $("#editorFechamento").kendoValidator({
+			messages: {				
+				required: "Obrigatório"
+			}			
+		}).data("kendoValidator");
   
-		view.element.find("#btnCreate").data("kendoMobileButton").bind("click", function() {			
+		view.element.find("#createFechamento").data("kendoMobileButton").bind("click", function() {			
 			viewModelFechamento.dsFechamento.one("change", function() {				
 				view.loader.hide();
 				app.navigate("#infoFechamento-view");                
@@ -227,7 +231,7 @@
 		}
 		);
 
-		view.element.find("#btnCancel").data("kendoMobileBackButton").bind("click", function(e) {
+		view.element.find("#cancelFechamento").data("kendoMobileBackButton").bind("click", function(e) {
 			e.preventDefault();
 			viewModelFechamento.dsFechamento.one("change", function() {
 				view.loader.hide();

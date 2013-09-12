@@ -1239,32 +1239,32 @@
 		var novoColaborador = viewModel.dsColaborador.add();
 		viewModel.set("colaboradorSelecionado", novoColaborador);
 		viewModel.colaboradorSelecionado.set("LojId", viewModel.lojaSelecionada.get("LojId"));
-		app.navigate("#editorColaborador-view");
+		app.application.navigate("#editorColaborador-view");
 	}
        
 	function detalhesColaborador(e) {
 		var colaborador = viewModel.dsColaborador.getByUid(e.touch.target.context.id);
 		viewModel.set("colaboradorSelecionado", colaborador);		
 		dsTelColaborador.read(); 
-		app.navigate("#detalhesColaborador-view");
+		app.application.navigate("#detalhesColaborador-view");
 	}
      
 	function showColaboradorLoja(e) {
 		var colaborador = viewModel.dsColaborador.getByUid(e.touch.target.context.id);
 		viewModel.set("colaboradorSelecionado", colaborador);
-		app.navigate("#desempenho-colaboradorView");
+		app.application.navigate("#desempenho-colaboradorView");
 	}
 
 	function showTurnodaLoja(e) {
 		var turno = viewModel.dsTurnosLoja.getByUid(e.touch.target.context.id);
 		viewModel.set("turnoSelecionado", turno);
-		app.navigate("#desempenho-turnoView");
+		app.application.navigate("#desempenho-turnoView");
 	}
 
 	function adicionarLoja() {
 		var loja = viewModel.dsLoja.add();		
 		viewModel.set("lojaSelecionada", loja);
-		app.navigate("#EditorLoja-view");
+		app.application.navigate("#EditorLoja-view");
 	}
  
 	function vendedoresFila() {          
@@ -1319,7 +1319,7 @@
 			var schemaVendedores = viewModel.dsVendFila.getByUid(e.touch.target.context.id);
 			viewModel.set("vendedorSelecionado", schemaVendedores);
 			//Saida
-			app.navigate("#sairdaFila_View");
+			app.application.navigate("#sairdaFila_View");
        
 			//prevent `swipe`
 			button.hide();
@@ -1343,7 +1343,7 @@
             
 			viewModel.set("vendedorSelecionado", schemaVendedores);
 			//Entrar na fila			
-			app.navigate("#entrarNaFila_View");
+			app.application.navigate("#entrarNaFila_View");
        
 			//prevent `swipe`
 			button.hide();
@@ -1377,7 +1377,7 @@
 		viewModel.set("vendedorSelecionado", schemaVendedores);
 		viewModelNaoVenda.set("vendedorSelecionado", schemaVendedores);
 		adicionarAtendimento();
-		app.navigate("#resultadoAtendimento-view");
+		app.application.navigate("#resultadoAtendimento-view");
 	}
 	   
 	function atendimentoViewInit(e) {
@@ -1392,7 +1392,7 @@
 			viewModel.dsAtendimento.one("change", function() {				
 				view.loader.hide();
 				if (validatorAtendimento.validate()) {
-					app.navigate("#dentroFila-view"); 
+					app.application.navigate("#dentroFila-view"); 
 				}
 			});
             
@@ -1411,7 +1411,7 @@
 			e.preventDefault();
 			viewModel.dsAtendimento.one("change", function() {
 				view.loader.hide();
-				app.navigate("#dentroFila-view");
+				app.application.navigate("#dentroFila-view");
 			});
 
 			view.loader.show();
@@ -1475,7 +1475,7 @@
 			return false;
 		});
         
-		validatorColaborador = $("#editorColaborador").kendoValidator({
+		validatorColaborador = $("#editColaborador").kendoValidator({
 			rules: {
 				custom: function (input) {
 					if (input.is("[name=Cpf]")) {
@@ -1491,12 +1491,12 @@
         
 		validatorTelColaborador = $("#editorTelColaborador").kendoValidator().data("kendoValidator");
 
-		view.element.find("#btnCreate").data("kendoMobileButton").bind("click", function() {			
+		view.element.find("#editColaborador").data("kendoMobileButton").bind("click", function() {			
 			dsColaborador.one("change", function() {
 				dsTelColaborador.sync();
 				view.loader.hide();			
 				if (validatorColaborador.validate() && validatorTelColaborador.validate()) {				
-					app.navigate("#colaboradores-view"); 
+					app.application.navigate("#colaboradores-view"); 
 				}
 			});
             
@@ -1511,11 +1511,11 @@
 			}
 		});
         
-		view.element.find("#btnCancel").data("kendoMobileBackButton").bind("click", function(e) {
+		view.element.find("#cancelColaborador").data("kendoMobileBackButton").bind("click", function(e) {
 			e.preventDefault();
 			dsColaborador.one("change", function() {
 				view.loader.hide();
-				app.navigate("#colaboradores-view");
+				app.application.navigate("#colaboradores-view");
 			});
 
 			view.loader.show();			
@@ -1569,12 +1569,12 @@
 			return false;
 		});
 		
-		view.element.find("#btnCreate").data("kendoMobileButton").bind("click", function() {			
+		view.element.find("#editorLoja").data("kendoMobileButton").bind("click", function() {			
 			dsLoja.one("change", function() {				
 				view.loader.hide();
 				dsEscala.sync(); 
 				if (validatorLoja.validate() && validatorTurno.validate()) {
-					app.navigate("#detalhesLoja-view");
+					app.application.navigate("#detalhesLoja-view");
 				}
 			});        
 			
@@ -1589,12 +1589,12 @@
 			}
 		});
         
-		view.element.find("#btnCancel").data("kendoMobileBackButton").bind("click", function(e) {
+		view.element.find("#cancelLoja").data("kendoMobileBackButton").bind("click", function(e) {
 			e.preventDefault();
 			dsLoja.one("change", function() {
 				dsEscala.cancelChanges();
 				view.loader.hide();
-				app.navigate("#detalhesLoja-view");
+				app.application.navigate("#detalhesLoja-view");
 			});
 
 			view.loader.show();
@@ -1610,7 +1610,7 @@
 		view.element.find("#salvarSaida").data("kendoMobileButton").bind("click", function() {	
 			viewModel.dsVendFila.one("change", function() {				
 				view.loader.hide();
-				app.navigate("#dentroFila-view") 
+				app.application.navigate("#dentroFila-view") 
 			});
             
 			view.loader.show();
@@ -1621,7 +1621,7 @@
 			e.preventDefault();
 			viewModel.dsVendFila.one("change", function() {
 				view.loader.hide();
-				app.navigate("#dentroFila-view");
+				app.application.navigate("#dentroFila-view");
 			});
 
 			view.loader.show();
@@ -1656,7 +1656,7 @@
 				document.getElementById('editorClientesContactados').style.display = "none";
 				document.getElementById('editorClientesContactadosLista').style.display = "none";
 				view.loader.hide();
-				app.navigate("#dentroFila-view"); 
+				app.application.navigate("#dentroFila-view"); 
 			});            
 			view.loader.show();
 			viewModel.dsVendFila.sync();
@@ -1668,7 +1668,7 @@
 				document.getElementById('editorClientesContactados').style.display = "none";
 				document.getElementById('editorClientesContactadosLista').style.display = "none";                
 				view.loader.hide();
-				app.navigate("#dentroFila-view");
+				app.application.navigate("#dentroFila-view");
 			});
 
 			view.loader.show();
