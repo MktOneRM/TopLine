@@ -97,7 +97,7 @@
 			</div>
 			<div id="formAtendimento">
 				<div id="atendimento_left">
-					<img class="foto_grande" data-bind="attr: { src: vendedorSelecionado.ColFotoCorpo }" />
+					<img class="foto_grande" scr="" data-bind="attr: { src: vendedorSelecionado.ColFotoCorpo }" alt="" />
 				</div>
 				<div id="atendimento_rigth">
 					<ul>
@@ -1057,7 +1057,7 @@
 					<span data-role="view-title"></span>
 				</div>
 				<div class="configTitulo">
-					<span data-bind="text: lojaSelecionada.LojNomefantasia"/>
+					<span data-bind="text: lojaSelecionada.LojNomefantasia"></span>
 					<span data-bind="cabecalhoMetas: dataAtual" data-dateformat="dd/MM/yyyy"></span>
 				</div>
 				<ul class="tableConsultaHeader">
@@ -1235,12 +1235,12 @@
 				</div>
 				<div id="divTituloAtu">COLABORADOR</div>
 			</header>
-			<ul id="infoColaborador" data-role="listview" data-type="group">
+			<ul class="infoColaborador" data-role="listview" data-type="group">
 				<li>
 					<ul>
 						<li>
 							<div class="divinfoFoto">
-								<img class="fila-art" data-bind="attr: { src: colaboradorSelecionado.ColFoto }" />
+								<img class="fila-art" scr="" data-bind="attr: { src: colaboradorSelecionado.ColFoto }" alt=""/>
 								<div class="divinfoFoto">
 									<h1 class="col-nome" data-bind="text: colaboradorSelecionado.ColNome"></h1>
 								</div>
@@ -1250,7 +1250,9 @@
 				</li>
 				<li>
 					<ul>
-						<li class="divSubTitulo">Dados</li>
+						<li>
+							<div class="divSubTitulo">Dados</div>
+						</li>
 						<li>
 							<label>CPF</label>
 							<span data-bind="cpf: colaboradorSelecionado.ColCpf"></span>
@@ -1283,7 +1285,9 @@
 				</li>
 				<li>
 					<ul>
-						<li class="divSubTitulo">Status</li>
+						<li>
+							<div class="divSubTitulo">Status</div>
+						</li>
 						<li>
 							<label>
 								Entrada
@@ -1302,7 +1306,9 @@
 				</li>
 				<li>
 					<ul>
-						<li class="divSubTitulo">Posição</li>
+						<li>
+							<div class="divSubTitulo">Posição</div>
+						</li>
 						<li>
 							<label>Cargo</label>
 							<span data-bind="text: colaboradorSelecionado.CarDescricao"></span>
@@ -1315,7 +1321,7 @@
 					</ul>
 				</li>
 				<li>
-					<ul id="infoColaborador" data-bind="source: dsTelColaborador" data-role="listview" data-template="tTelColaborador"></ul>
+					<ul class="infoColaborador" data-bind="source: dsTelColaborador" data-role="listview" data-template="tTelColaborador"></ul>
 				</li>
 			</ul>
 		</div>
@@ -1330,20 +1336,28 @@
 				</div>
 			</header>
 			<ul id="editorColaborador" data-role="listview" data-type="group">
-				<div id="divTituloFotos">Foto de close</div>
-				<li style="height:70px;">
-					<input id="ImgPequena"  data-bind="attr: { src: colaboradorSelecionado.ColFoto }" type="image" name="image" width="60" height="60" style="float:left;margin:3px 5px 0 5px;" />
-					<input id="capturarFotoClose" type="image" src="styles/images/iconFoto.png" name="image" width="60" height="60">
-					<input id="galeriaFotoClose" type="image" src="styles/images/iconGaleria.png" name="image" width="60" height="60">
+				<li style="height: 15px;">
+					<div class="divTituloFotos">Foto de close</div>
 				</li>
-				<div id="divTituloFotos">Foto de corpo inteiro</div>
+				<li style="height:70px;">
+					<input id="ImgPequena" data-bind="attr: { src: colaboradorSelecionado.ColFoto }" type="image" name="image" width="60" height="60" style="float:left;margin:3px 5px 0 5px;" />
+					<input id="capturarFotoClose" type="image" src="styles/images/iconFoto.png" name="image" width="60" height="60" alt="">
+					<input id="galeriaFotoClose" type="image" src="styles/images/iconGaleria.png" name="image" width="60" height="60" alt="">
+				</li>
+				<li style="height: 15px;">
+					<div class="divTituloFotos">Foto de corpo inteiro</div>
+				</li>
 				<li style="height:80px;">
 					<input id="ImgGrande"  data-bind="attr: { src: colaboradorSelecionado.ColFotoCorpo }" type="image" name="image" width="50" height="70" style="float:left;margin: 3px 10px 0 10px;" />
-					<input id="capturarFotoCorpo" type="image" src="styles/images/iconFoto.png" name="image" width="60" height="60">
-					<input id="galeriaFotoCorpo" type="image" src="styles/images/iconGaleria.png" name="image" width="60" height="60">
+					<input id="capturarFotoCorpo" type="image" src="styles/images/iconFoto.png" name="image" width="60" height="60" alt="">
+					<input id="galeriaFotoCorpo" type="image" src="styles/images/iconGaleria.png" name="image" width="60" height="60" alt="">
 				</li>
-				<div>
-					<div id="divSubTitulo">Dados</div>
+				<li>
+					<ul>
+						<li>
+							<div class="divSubTitulo">Dados</div>
+						</li>
+					</ul>
 					<ul>
 						<li>
 							<label>
@@ -1367,7 +1381,7 @@
 							<label>
 								Sexo
 							</label>
-							<select id="sexoId" name="Sexo" data-bind="source: sexos, value: colaboradorSelecionado.ColSexo" data-text-field="Desc" data-value-field="Id" required  ></select>
+							<select id="sexoId" name="Sexo" data-bind="source: sexos, value: colaboradorSelecionado.ColSexo" data-text-field="Desc" data-value-field="Id"></select>
 						</li>
 						<li>
 							<label>
@@ -1379,7 +1393,7 @@
 							<label>
 								Nascimento
 							</label>
-							<input id="dtNascimento" name="DataNascimento" type="date" placeholder="Data de nascimento" min="1930-01-01" data-bind="dateValue: colaboradorSelecionado.ColDtnascimento" required />
+							<input id="dtNascimento" name="DataNascimento" type="date" min="1930-01-01" data-bind="dateValue: colaboradorSelecionado.ColDtnascimento" required />
 						</li>
 
 						<li>
@@ -1389,15 +1403,17 @@
 							<input id="email" name="Email" type="email" placeholder="e.g. meunome@exemplo.com.br" maxlength="60" size="60" data-bind="value: colaboradorSelecionado.ColEmail" required  data-email-msg="Formato de E-mail inválido!"/>
 						</li>
 					</ul>
-				</div>
-				<div>
+				</li>
+				<li>
 					<ul>
-						<div id="divSubTitulo">Status</div>
+						<li>
+							<div class="divSubTitulo">Status</div>
+						</li>
 						<li>
 							<label>
 								Entrada
 							</label>
-							<input id="dtEntrada" name="DataEntrada" type="date" placeholder="Data de Entrada" min="2000-01-01" max="2020-12-31" data-bind="dateValue: colaboradorSelecionado.ColDtentrada" required />
+							<input id="dtEntrada" name="DataEntrada" type="date" min="2000-01-01" max="2020-12-31" data-bind="dateValue: colaboradorSelecionado.ColDtentrada" required />
 						</li>
 						<li>
 							<label>
@@ -1409,13 +1425,15 @@
 							<label>
 								Afastado
 							</label>
-							<input id="afastamento" name="Afastamento" data-role="switch" data-on-label="Sim" data-off-label="Não" checked="unchecked" data-bind="checked: colaboradorSelecionado.ColAfasttemp">
+							<input id="afastamento" type="checked" name="Afastamento" data-role="switch" data-on-label="Sim" data-off-label="Não" checked="unchecked" data-bind="checked: colaboradorSelecionado.ColAfasttemp">
 						</li>
 					</ul>
-				</div>
-				<div>
+				</li>
+				<li>
 					<ul>
-						<div id="divSubTitulo">Posição</div>
+						<li>
+							<div class="divSubTitulo">Posição</div>
+						</li>
 						<li>
 							<label>
 								Cargo
@@ -1429,18 +1447,18 @@
 							<select id="turnoId" name="Turno" data-bind="source: turnosLoja, value: colaboradorSelecionado.ColHfuId" data-text-field="TufDescricao" data-value-field="TufId"></select>
 						</li>
 					</ul>
-				</div>
-				<div>
+				</li>
+				<li>
 					<ul>
 						<li class="subTitulo" style="padding:5px;margin:0;">
-							<a id="novoTelefone" class="subTitulo">Novo Telefone</a>
+							<a class="divSubTitulo">Novo Telefone</a>
 							<a id="novoTelefone" data-role="detailbutton" class="subTitulo" data-style="rowinsert">&nbsp;</a>
 						</li>
 					</ul>
-				</div>
-				<div>
+				</li>
+				<li>
 					<ul id="editorTelColaborador" data-bind="source: telefonesColaborador" data-role="listview" data-template="tAtuTelColaborador"></ul>
-				</div>
+				</li>
 			</ul>
 		</div>
 
@@ -1455,9 +1473,11 @@
 				<div id="divTituloAtu">LOJA</div>
 			</header>
 			<ul id="infoLoja" data-role="listview" data-type="group">
-				<div>
+				<li>
 					<ul>
-						<div id="divSubTitulo">Dados</div>
+						<li>
+							<div class="divSubTitulo">Dados</div>
+						</li>
 						<li>
 							<label>
 								CNPJ
@@ -1489,10 +1509,12 @@
 							</label><span id="dtCadastro" data-bind="dateText: LojDtcadastro"></span>
 						</li>
 					</ul>
-				</div>
-				<div>
+				</li>
+				<li>
 					<ul>
-						<div id="divSubTitulo">Endereço</div>
+						<li>
+							<div class="divSubTitulo">Endereço</div>
+						</li>
 						<li>
 							<label>
 								Logradouro
@@ -1529,10 +1551,12 @@
 							</label><span data-bind="cep: LojCep"></span>
 						</li>
 					</ul>
-				</div>
-				<div>
+				</li>
+				<li>
 					<ul>
-						<div id="divSubTitulo">Coordenadas</div>
+						<li>
+							<div class="divSubTitulo">Coordenadas</div>
+						</li>
 						<li>
 							<label>
 								Latitude
@@ -1544,10 +1568,10 @@
 							</label> <span data-bind="text: LojLongitude"></span>
 						</li>
 					</ul>
-				</div>
-				<div>
+				</li>
+				<li>
 					<ul id="infoLoja" data-bind="source: dsEscala" data-role="listview" data-template="tEscalasLoja"></ul>
-				</div>
+				</li>
 			</ul>
 		</div>
 
@@ -1564,7 +1588,9 @@
 			<ul id="editorLoja" data-role="listview" data-type="group" >
 				<div>
 					<ul>
-						<div id="divSubTitulo">Dados</div>
+						<li>
+							<div class="divSubTitulo">Dados</div>
+						</li>
 						<li>
 							<label>
 								CNPJ
@@ -1605,7 +1631,9 @@
 				</div>
 				<div>
 					<ul>
-						<div id="divSubTitulo">Endereço</div>
+						<li>
+							<div class="divSubTitulo">Endereço</div>
+						</li>
 						<li>
 							<label>
 								Logradouro
@@ -1653,7 +1681,7 @@
 				<div>
 					<ul>
 						<li class="subTitulo" style="padding:5px;margin:0;">
-							<a id="lerCoordenadas" class="subTitulo">Coordenadas</a>
+							<a class="subTitulo">Coordenadas</a>
 							<a id="lerCoordenadas" data-role="detailbutton" class="subTitulo" data-icon="globe">&nbsp;</a>
 						</li>
 						<li>
@@ -1673,7 +1701,7 @@
 				<div>
 					<ul>
 						<li class="subTitulo" style="padding:5px;margin:0;">
-							<a id="novoTurno" class="subTitulo">Novo Turno</a>
+							<a class="subTitulo">Novo Turno</a>
 							<a id="novoTurno" data-role="detailbutton" class="subTitulo" data-style="rowinsert">&nbsp;</a>
 						</li>
 					</ul>
@@ -1730,7 +1758,9 @@
 								Diferença
 							</label><span id="divergenciaQtde" data-bind="text: fechamentoApurado.divergenciaQtde"></span>
 						</li>
-						<div id="divSubTitulo"></div>
+						<li>
+							<div class="divSubTitulo"></div>
+						</li>
 						<li>
 							<label>
 								Valor Total Apurado
@@ -1774,7 +1804,9 @@
 				</div>
 				<div>
 					<ul>
-						<div id="divSubTitulo">Parâmetros Fechamento</div>
+						<li>
+							<div class="divSubTitulo">Parâmetros Fechamento</div>
+						</li>
 						<li>
 							<label>
 								Tipo
@@ -1791,7 +1823,9 @@
 				</div>
 				<div>
 					<ul>
-						<div id="divSubTitulo">Dados Fechamento</div>
+						<li>
+							<div class="divSubTitulo">Dados Fechamento</div>
+						</li>
 						<li>
 							<label>
 								Qtde. de Vendas
@@ -1882,7 +1916,9 @@
 
 		<script type="text/x-kendo-template" id="tEscalasLoja">
 			<ul id="infoLoja" data-role="listview">
-				<div id="divSubTitulo">#=TufDescricao#</div>
+				<li>
+					<div class="divSubTitulo">#=TufDescricao#</div>
+				</li>
 				<li>
 					<label>
 						Escala
@@ -1925,12 +1961,14 @@
 					<input id="#= uid #" name="EscHrFinal" type="time" data-bind="value: EscHrFinal" required />
 				</li>
 			</ul>
-			<div id="divSubTitulo"></div>
+			<div class="divSubTitulo"></div>
 		</script>
 
 		<script type="text/x-kendo-template" id="tTelColaborador">            			
-			<ul id="infoColaborador" data-role="listview">
-				<div id="divSubTitulo">Telefone</div>
+			<ul class="infoColaborador" data-role="listview">
+				<li>
+					<div class="divSubTitulo">Telefone</div>
+				</li>
 				<li>
 					<label>
 						${TteDescricao}
@@ -2067,66 +2105,66 @@
 			var baseUrl = "http://revenue.azurewebsites.net/api";
 			//var baseUrl = "http://www.revenuemachine.com.br/mobile/api";
 			//var baseUrl = "http://localhost:63504/api";
-
+			
 			app = new kendo.mobile.Application($(document.body), { 
 				transition: "slide",
 				loading: '<h1 class="loading-message">Carregando...</h1>', 
 				skin:"flat"
 			});
-			                        
+			
 			kendo.mobile.ui.Drawer.current = null;
-                        
+			
 			function switchChange(e) {
 				if (!e.checked) {          
 					app.navigate("#MotNaoVenda-view");
 				}    
 			} 
-            
+			
 			$(window).resize(function() {
 				var newHeigth = $(document).height() - 100;
-            
+			
 				var chart = $("#chtGrafDesRealizadoVendaLoja").data("kendoChart"); 
 				if (chart != null) {
 					chart.options.chartArea.height = newHeigth; 
 					chart.refresh(); 
 				}
-            
+			
 				var chart1 = $("#chtGrafDesRealizadoVendaCol").data("kendoChart"); 
-                
+			
 				if (chart1 != null) {                
 					chart1.options.chartArea.height = newHeigth; 
 					chart1.refresh(); 
 				}
-            
+			
 				var chart2 = $("#chtGrafDesRealizadoVendaTurno").data("kendoChart"); 
-            
+			
 				if (chart2 != null) {
 					chart2.options.chartArea.height = newHeigth; 
 					chart2.refresh(); 
 				}
-                
+			
 				var chart3 = $("#chtGrafDesProdutividadeVendasPerdidasLoja").data("kendoChart"); 
-            
+			
 				if (chart3 != null) {
 					chart3.options.chartArea.height = newHeigth; 
 					chart3.refresh(); 
 				}
-                
+			
 				var chart4 = $("#chtGrafDesProdutividadeVendasPerdidasTurno").data("kendoChart"); 
-            
+			
 				if (chart4 != null) {
 					chart4.options.chartArea.height = newHeigth; 
 					chart4.refresh(); 
 				}
-                
+			
 				var chart5 = $("#chtGrafDesProdutividadeVendasPerdidasCol").data("kendoChart"); 
-            
+			
 				if (chart5 != null) {
 					chart5.options.chartArea.height = newHeigth; 
 					chart5.refresh(); 
 				}
 			});
-            
+			
 		</script>
 
 		<script>

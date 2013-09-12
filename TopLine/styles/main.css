@@ -971,7 +971,8 @@ label
 	font-size: 16px;
 	font-weight: bold;
 	text-align: left;
-	padding: 5px;
+	padding: 5px 5px 5px 5px;
+	margin:0;
 	background-color: #DDDDDD;
 	color: #333333;
 }
@@ -1202,18 +1203,18 @@ label
 	background-color: #f2f2f2;
 }
 
-#infoColaborador ul
+.infoColaborador ul
 {
 	padding: 0;
 	background-color: #DDDDDD;
 }
 
-#infoColaborador span:hover
+.infoColaborador span:hover
 {
 	text-decoration: none;
 }
 
-#infoColaborador span
+.infoColaborador span
 {
 	text-decoration: none;
 	float: left;
@@ -1226,7 +1227,7 @@ label
 	color: #333333; 
 }
 
-#infoColaborador li
+.infoColaborador li
 {
 	padding: 0;
 	margin-right: 10px;
@@ -1235,7 +1236,7 @@ label
 	width: 100%;
 }
 
-#infoColaborador label
+.infoColaborador label
 {
 	float: left;
 	width: 30%;
@@ -1384,14 +1385,19 @@ label
 	padding-top: 10px;
 }
 
-#divTituloFotos
+.divTituloFotos
 {
 	font-size: 11px;
 	font-weight: bold;
 	text-align: left;
     height: 15px;
+	margin:0;
+	padding:0;
 	background-color: #DDDDDD;
 	color: #333333;
+}
+.divTituloFotos .k-imagem {
+	background-image:url("../styles/images/iconsTabela_off.png"); 
 }
 
 .divinfoFoto
