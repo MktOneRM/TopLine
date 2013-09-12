@@ -216,7 +216,6 @@
 	//Função para tramento de erro!
 	function DataSource_Error(e) {
 		console.log(e.status, e);
-		
 		//Fecha o Loader
 		app.pane.loader.hide();
 	}

@@ -48,11 +48,14 @@
 			}, function() {
 				that._onFalhaFotoClose.apply(that, arguments);
 			}, {
-				quality: 70, 
-				allowEdit: true,
-				destinationType: cameraApp._destinationType.DATA_URL,
-				targetWidth: 60,
-				targetHeight: 60
+				/*quality: 70, 
+				allowEdit: true,*/
+				/*destinationType: cameraApp._destinationType.DATA_URL,*/
+				destinationType: cameraApp._destinationType.FILE_URI,
+				/*targetWidth: 60,
+				targetHeight: 60*/
+				/*sourceType: sourceType,*/
+				correctOrientation: true
 			});
 		},
     
@@ -79,12 +82,36 @@
 			});
 		},
     
-		_onFotoCloseDataSucesso: function(imageData) {
-			var smallImage = document.getElementById('ImgPequena');
-			smallImage.style.display = 'block';
-			// Show the captured photo.
-			smallImage.src = "data:image/jpeg;base64," + imageData;
-			viewModel.colaboradorSelecionado.set("ColFoto", smallImage.src);
+		_onFotoCloseDataSucesso: function(imageURI) {			
+			var fail, ft, options, params, win;
+			
+			options = new FileUploadOptions();
+			
+			options.chunkedMode = false;
+			
+			// parameter name of file:
+			options.fileKey = "my_image";
+			
+			// name of the file:
+			options.fileName = imageURI.substr(imageURI.lastIndexOf('/') + 1);
+			
+			// mime type:
+			options.mimeType = "text/plain";
+			params = {
+				val1: "some value",
+				val2: "some other value"
+			};
+			options.params = params;
+			ft = new FileTransfer();
+			
+			console.log(options.fileName, imageURI, ft);
+			
+			ft.upload(imageURI, 'http://revenue.azurewebsites.net/Content/Mobile', function() {
+				alert("Your photo has been uploaded!")
+			}, function(error) {
+				alert("An error has occurred: Code = " + error.code)
+				console.log(error);
+			}, options);
 		},
     
 		_onFotoCloseGaleriaURISucesso: function(imageURI) {
