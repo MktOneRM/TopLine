@@ -5,6 +5,7 @@
 		<meta charset="utf-8" />
 		<link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet" />
 		<link href="styles/main.css" rel="stylesheet" />
+		<link href="styles/loginStyle.css" rel="stylesheet" />
 
 		<script src="cordova.js"></script>
 		<script src="kendo/js/jquery.min.js"></script>
@@ -34,9 +35,8 @@
 				<div class="logo"></div>
 				<h3 data-bind="invisible: isLoggedIn">Insira suas credenciais:</h3>
 				<h1 class="welcome" data-bind="visible: isLoggedIn">
-					Welcome, <span data-bind="text: username"></span>!
+					Seja Bem Vindo, <span data-bind="text: username"></span>!
 				</h1>
-
 				<ul data-role="listview" data-style="inset" data-bind="invisible: isLoggedIn">
 					<li>
 						<label>
@@ -56,80 +56,10 @@
 					<a id="login" data-role="button" data-bind="click: onLogin, invisible: isLoggedIn" class="login-button">Entrar</a>
 					<a id="logout" data-role="button" data-bind="click: onLogout, visible: isLoggedIn" class="login-button">Logout</a>
 				</div>
+
 			</div>
 
 		</div>
-
-		<!--	
-		<script type="text/javascript">
-			
-		app = new kendo.mobile.Application($(document.body), { 
-		transition: "slide",
-		loading: '<h1 class="loading-message">Carregando...</h1>', 
-		skin:"flat"
-		});
-			
-		kendo.mobile.ui.Drawer.current = null;
-			
-		function switchChange(e) {
-		if (!e.checked) {          
-		app.navigate("#MotNaoVenda-view");
-		}    
-		} 
-			
-		$(window).resize(function() {
-		var newHeigth = $(document).height() - 100;
-			
-		var chart = $("#chtGrafDesRealizadoVendaLoja").data("kendoChart"); 
-		if (chart != null) {
-		chart.options.chartArea.height = newHeigth; 
-		chart.refresh(); 
-		}
-			
-		var chart1 = $("#chtGrafDesRealizadoVendaCol").data("kendoChart"); 
-			
-		if (chart1 != null) {                
-		chart1.options.chartArea.height = newHeigth; 
-		chart1.refresh(); 
-		}
-			
-		var chart2 = $("#chtGrafDesRealizadoVendaTurno").data("kendoChart"); 
-			
-		if (chart2 != null) {
-		chart2.options.chartArea.height = newHeigth; 
-		chart2.refresh(); 
-		}
-			
-		var chart3 = $("#chtGrafDesProdutividadeVendasPerdidasLoja").data("kendoChart"); 
-			
-		if (chart3 != null) {
-		chart3.options.chartArea.height = newHeigth; 
-		chart3.refresh(); 
-		}
-			
-		var chart4 = $("#chtGrafDesProdutividadeVendasPerdidasTurno").data("kendoChart"); 
-			
-		if (chart4 != null) {
-		chart4.options.chartArea.height = newHeigth; 
-		chart4.refresh(); 
-		}
-			
-		var chart5 = $("#chtGrafDesProdutividadeVendasPerdidasCol").data("kendoChart"); 
-			
-		if (chart5 != null) {
-		chart5.options.chartArea.height = newHeigth; 
-		chart5.refresh(); 
-		}
-		});
-			
-		</script>
-
-		<script>
-		function closeModalViewLogin() {
-		$("#modalview-login").kendoMobileModalView("close");
-		}
-		</script>
-		-->
 
 	</body>
 </html>

@@ -216,7 +216,7 @@
 		view.element.find("#createFechamento").data("kendoMobileButton").bind("click", function() {			
 			viewModelFechamento.dsFechamento.one("change", function() {				
 				view.loader.hide();
-				app.navigate("#infoFechamento-view");                
+				app.application.navigate("#infoFechamento-view");                
 			});
          
 			view.loader.show();
@@ -235,7 +235,7 @@
 			e.preventDefault();
 			viewModelFechamento.dsFechamento.one("change", function() {
 				view.loader.hide();
-				app.navigate("#dentroFila-view");
+				app.application.navigate("#dentroFila-view");
 			});
 			view.loader.show();			
 			viewModelFechamento.dsFechamento.cancelChanges();

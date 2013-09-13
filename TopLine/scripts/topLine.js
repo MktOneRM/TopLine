@@ -1,5 +1,4 @@
 (function($, config) {
-	
 	kendo.data.binders.cep = kendo.data.Binder.extend({
 		refresh: function() {
 			var value = this.bindings["cep"].get();
@@ -221,9 +220,9 @@
 	}
 	
 	//Função para Sucesso do DataSource
-	function DataSource_Sucess(e){
+	function DataSource_Sucess(e) {
 		console.log(e, "Sucesso");
-    }
+	}
 	
 	//schema
 	var schemaVendedores = { 
@@ -714,7 +713,6 @@
 			viewModel.set("tiposContato", this.view());   
 		}       
 	});
-    
 	
 	dsTiposContato.bind("error", DataSource_Error);
 		
@@ -1891,6 +1889,12 @@
 		return true;
 	}
     
+	function switchChange(e) {
+		if (!e.checked) {          
+			app.application.navigate("#MotNaoVenda-view");
+		}    
+	} 
+	
 	//Valor fixo, pois o Código da Loja virá conforme cadastro do dispositivo.
 	viewModel.set("idLoja", 1);
 			
@@ -1944,7 +1948,8 @@
 		sairFilaViewShow: sairFilaViewShow,
 		entrarFilaViewInit: entrarFilaViewInit,
 		entrarFilaViewShow: entrarFilaViewShow,
-        
+        switchChange: switchChange,
+		
 		showPeriodosFuncionamento: showPeriodosFuncionamento
         
         

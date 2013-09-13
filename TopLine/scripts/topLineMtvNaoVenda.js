@@ -89,7 +89,7 @@
 				//Marca o checkbox como default
 				document.getElementById("chkVendeu").checked = "checked";
 				view.loader.hide();				
-				app.navigate("#dentroFila-view"); 
+				app.application.navigate("#dentroFila-view"); 
 			});
       
 			view.loader.show();
@@ -101,7 +101,7 @@
 			viewModelNaoVenda.dsNaoVenda.one("change", function() {
 				document.getElementById("chkVendeu").checked = "checked";
 				view.loader.hide();
-				app.navigate("#dentroFila-view");
+				app.application.navigate("#dentroFila-view");
 			});
 
 			view.loader.show();

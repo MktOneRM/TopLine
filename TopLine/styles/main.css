@@ -945,7 +945,7 @@ label
     color:#ffffff;
 }
 
-#divTituloAtu
+.divTituloAtu
 {
 	font-size: 16px;
 	font-weight: bold;
@@ -986,18 +986,18 @@ label
 	background-color: #DDDDDD;
 }
 
-#infoLoja ul
+.infoLoja ul
 {
 	padding: 0;
 	background-color: #DDDDDD;
 }
 
-#infoLoja span:hover
+.infoLoja span:hover
 {
 	text-decoration: none;
 }
 
-#infoLoja span
+.infoLoja span
 {
 	text-decoration: none;
 	float: left;
@@ -1010,7 +1010,7 @@ label
 	color: #333333; 
 }
 
-#infoLoja li
+.infoLoja li
 {
 	padding: 0;
 	margin-right: 10px;
@@ -1019,7 +1019,7 @@ label
 	width: 100%;
 }
 
-#infoLoja label
+.infoLoja label
 {
 	float: left;
 	width: 30%;
@@ -1733,22 +1733,4 @@ label
 
 .centro {
 	text-align:center;
-}
-
-/*Logins*/
-.buttonArea {
-    text-align: center;
-}
-.login-button {
-    width:85%;
-    max-width:300px;
-    line-height:1.6em;
-}
-
-.logo {
-    background-image:url(../styles/images/appiconRetina.png);
-    background-repeat:no-repeat;
-    width:135px;
-    height:110px;
-    margin:40px auto;
 }
