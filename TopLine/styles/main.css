@@ -1034,13 +1034,13 @@ label
 	color: #000;
 }
 
-#editorLoja ul
+.editorLoja ul
 {
 	padding: 0;
 	background-color: #DDDDDD;
 }
 
-#editorLoja li
+.editorLoja li
 {
 	display: block;
 	padding: 0;
@@ -1051,7 +1051,7 @@ label
 	alignment-adjust: left;
 }
 
-#editorLoja label
+.editorLoja label
 {
 	float: left;
 	display: block;
@@ -1068,7 +1068,7 @@ label
 	color: #000;
 }
 
-#editorLoja input[type="text"]
+.editorLoja input[type="text"]
 { 
 	alignment-adjust: left;
 	font-size: 14px;
@@ -1078,7 +1078,7 @@ label
 	float: left;
 }
     
-#editorLoja select
+.editorLoja select
 {
 	alignment-adjust: left;
 	font-size: 14px;
@@ -1088,7 +1088,7 @@ label
 	float: left;
 }
     
-#editorLoja input[type="time"]
+.editorLoja input[type="time"]
 { 
 	alignment-adjust: left;
 	font-size: 14px;

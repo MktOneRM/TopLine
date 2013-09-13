@@ -9,5 +9,6 @@
 	
 	$.extend(window, {
 		viewModelUrl: viewModelUrl
-	});
+	}
+	);
 })(jQuery);

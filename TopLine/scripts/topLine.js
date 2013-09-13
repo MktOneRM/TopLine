@@ -214,14 +214,8 @@
 		
 	//Função para tramento de erro!
 	function DataSource_Error(e) {
-		console.log(e.status, e);
-		//Fecha o Loader
-		app.pane.loader.hide();
-	}
-	
-	//Função para Sucesso do DataSource
-	function DataSource_Sucess(e) {
-		console.log(e, "Sucesso");
+		app.application.hideLoading();
+		app.error.showError("Houve um erro ao carregar os dados do servidor. Feche o aplicativo e tente novamente.", e);
 	}
 	
 	//schema
@@ -1425,6 +1419,7 @@
 		$("#sexoId").find("option[value='" + viewModel.colaboradorSelecionado.get("ColSexo") + "']").attr("selected", true);
 		$("#cargoId").find("option[value=" + viewModel.colaboradorSelecionado.get("CarId") + "]").attr("selected", true);
 		$("#turnoId").find("option[value=" + viewModel.colaboradorSelecionado.get("ColHfuId") + "]").attr("selected", true);
+		$("#turnoId01").find("option[value=" + viewModel.colaboradorSelecionado.get("ColHfuId") + "]").attr("selected", true);
         
 		//Adiciona o Id da Loja no cadastro do Colaborador
 		viewModel.colaboradorSelecionado.set("LojId", viewModel.lojaSelecionada.get("LojId"));
@@ -1948,7 +1943,7 @@
 		sairFilaViewShow: sairFilaViewShow,
 		entrarFilaViewInit: entrarFilaViewInit,
 		entrarFilaViewShow: entrarFilaViewShow,
-        switchChange: switchChange,
+		switchChange: switchChange,
 		
 		showPeriodosFuncionamento: showPeriodosFuncionamento
         

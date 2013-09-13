@@ -1,5 +1,6 @@
-(function($, undefined) {
+var application = app.application;
 
+(function($, undefined) {
 	//Schema Motivos não venda
 	var scMotivosNaoVenda = { 
 		model: {
@@ -25,6 +26,12 @@
 			} 
 		} 
 	};
+	
+	//Função para tramento de erro!
+	function DataSource_Error(e) {
+		app.application.hideLoading();
+		app.error.showError("Houve um erro ao carregar os dados do servidor. Feche o aplicativo e tente novamente.", e);
+	}
 
 	//dataSource motivos não venda
 	var dsMotivosNaoVenda = new kendo.data.DataSource({                    
@@ -45,8 +52,8 @@
 		schema: scMotivosNaoVenda,
 		change: function(e) {
 			viewModelNaoVenda.set("motivos", this.view());
-		}        
-        
+		},
+		error: DataSource_Error             
 	});
     
 	//dataSource Não Venda
@@ -65,7 +72,8 @@
 			}
 		},
 		batch: true,
-		schema: scNaoVenda
+		schema: scNaoVenda,
+		error: DataSource_Error
 	});
     
 	var viewModelNaoVenda = kendo.observable({		

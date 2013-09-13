@@ -1,5 +1,4 @@
 (function($, undefined) {
-
 	kendo.data.binders.cabecalho = kendo.data.Binder.extend({
 		init: function (element, bindings, options) {
 			kendo.data.Binder.fn.init.call(this, element, bindings, options); 
@@ -58,7 +57,6 @@
 		}
 	});	
 	
-	
 	kendo.data.binders.valorMonetario = kendo.data.Binder.extend({
 		refresh: function () {
 			var that = this,
@@ -77,6 +75,12 @@
 		}
 	});
 
+	//Função para tramento de erro!
+	function DataSource_Error(e) {
+		app.application.hideLoading();
+		app.error.showError("Houve um erro ao carregar os dados do servidor. Feche o aplicativo e tente novamente.", e);
+	}
+	
 	//Schema Atendimento
 	var scDesRealizadoVenda = { 
 		model: {
@@ -152,9 +156,15 @@
 		},
 		change: function(e) {
 			viewModelConsultas.set("resultado", this.view());
-		}
+		},
+		requestStart: function() {
+			app.application.showLoading()
+		},
+		error: DataSource_Error
 	});
     
+	
+	
 	var dsProdutividadeVendasPerdidas = new kendo.data.DataSource({                    
 		transport: {						
 			read:  {
@@ -184,8 +194,13 @@
 		},
 		change: function(e) {
 			viewModelConsultas.set("resultProdutividadeVendasPerdidas", this.view());
+		},
+		requestStart: function() {
+			app.application.showLoading()
 		}
 	});
+	
+	dsProdutividadeVendasPerdidas.bind("error", DataSource_Error);
 	
 	var dsProdutividadeAfastamentos = new kendo.data.DataSource({                    
 		transport: {						
@@ -216,8 +231,13 @@
 		},
 		change: function(e) {
 			viewModelConsultas.set("resultProdutividadeAfastamento", this.view());
+		},
+		requestStart: function() {
+			app.application.showLoading()
 		}
 	});
+	
+	dsProdutividadeAfastamentos.bind("error", DataSource_Error);
     
 	var dsMetasDiarias = new kendo.data.DataSource({                    
 		transport: {						
@@ -248,8 +268,13 @@
 		},
 		change: function(e) {
 			viewModelConsultas.set("resultMetasDiarias", this.view());
+		},
+		requestStart: function() {
+			app.application.showLoading()
 		}
 	});
+		
+	dsMetasDiarias.bind("error", DataSource_Error);
 	
 	var viewModelConsultas = kendo.observable({	
 		dsDesRealizadoCol: dsDesRealizadoCol,

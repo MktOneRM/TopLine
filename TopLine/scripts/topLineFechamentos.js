@@ -1,5 +1,4 @@
 (function($, undefined) {
-
 	kendo.data.binders.date = kendo.data.Binder.extend({
 		init: function (element, bindings, options) {
 			kendo.data.Binder.fn.init.call(this, element, bindings, options);
@@ -59,6 +58,12 @@
 		}
 	};
     
+	//Função para tramento de erro!
+	function DataSource_Error(e) {
+		app.application.hideLoading();
+		app.error.showError("Houve um erro ao carregar os dados do servidor. Feche o aplicativo e tente novamente.", e);
+	}
+	
 	var dsFechamento = new kendo.data.DataSource({
 		transport: {
 			read: {
@@ -88,7 +93,11 @@
 		sort: { 
 			field: "TipoFechamento", dir: "asc"            
 		},
-		schema: scFechamento        
+		schema: scFechamento , 
+		requestStart: function() {
+			app.application.showLoading()
+		},
+		error: DataSource_Error           
 	});
     
 	var dsTurnosFunc = new kendo.data.DataSource({                    
@@ -117,7 +126,11 @@
 			var turnoId = this.view()[0].get("TufId");
 			viewModelFechamento.fechamentoSelecionado.set("HfuId", turnoId);            
 			viewModelFechamento.set("turnos", this.view());
-		}
+		} ,
+		requestStart: function() {
+			app.application.showLoading()
+		},
+		error: DataSource_Error    
 	})
 
 	var dataTiposFech = [		

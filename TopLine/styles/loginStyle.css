@@ -1,35 +1,41 @@
-.view-content h1{
-    color:#42454a;
-    font-size:1.8em;
+/* COMMON STYLES*/
+.view-content h1
+{
+	color: #42454a;
+	font-size: 1.8em;
 }
-.view-content h1.welcome{
-    text-align:center;
+.view-content h1.welcome
+{
+	text-align: center;
 }
-.view-content h3{
-    color:#42454a;
-    font-size:1.1em;
+.view-content h3
+{
+	color: #42454a;
+	font-size: 1.1em;
 }
-.view-content p{
-    color:#4a4e54;
-    font-size:1em;
+.view-content p
+{
+	color: #4a4e54;
+	font-size: 1em;
 }
 
-.logo {
-    background-image:url(../styles/images/appicon.png) ;
-    background-repeat:no-repeat;
-	border: 0;
-    width:85px;
-    height:60px;
-    margin: 20px auto;
-	
-	
+.logo
+{
+	background-image: url(../styles/images/appiconRetina.png);
+	background-repeat: no-repeat;
+	width: 135px;
+	height: 110px;
+	margin: 40px auto;
 }
+
 /* BUTTON STYLES*/
-.buttonArea {
-    text-align: center;
+.buttonArea
+{
+	text-align: center;
 }
-.login-button {
-    width:85%;
-    max-width:300px;
-    line-height:1.6em;
+.login-button
+{
+	width: 85%;
+	max-width: 300px;
+	line-height: 1.6em;
 }
