@@ -97,6 +97,9 @@
 		requestStart: function() {
 			app.application.showLoading()
 		},
+		requestEnd: function() {
+			app.application.hideLoading()
+		},
 		error: DataSource_Error           
 	});
     
@@ -129,6 +132,9 @@
 		} ,
 		requestStart: function() {
 			app.application.showLoading()
+		},
+		requestEnd: function() {
+			app.application.hideLoading()
 		},
 		error: DataSource_Error    
 	})
