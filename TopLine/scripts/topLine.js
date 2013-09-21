@@ -455,7 +455,7 @@
 	//Schema de cargos
 	var scEscala = { 
 		model: {
-			id: "EscId",
+			id: "Id",
 			fields: {
 				EscId: { type: "int", defaultValue:0 },
 				HfuId: { type: "int", validation: { required: true} },
@@ -463,9 +463,10 @@
 				TufId: { type: "int", validation: { required: true} },
 				TufDescricao: { type: "int" },
 				DsfId: { type: "int", validation: { required: true} },
-				DsfDescricao: { type: "int" },
+				DsfDescricao: { type: "string" },
 				EscHrInicial: { type: "time", validation: { required: true} },
-				EscHrFinal: { type: "time",  validation: { required: true} }
+				EscHrFinal: { type: "time",  validation: { required: true} },
+				Sequencia: { type: "number", defaultValue: 0 },
 			} 
 		}
 	};    
@@ -844,10 +845,11 @@
 		schema: scEscala,
 		change:function(e) {
 			viewModel.set("escalas", this.view());
+			console.log(viewModel);
 		},                       
 		sort: {
-			field:"TufId", 
-			dir: "asc"
+			field:"Id", 
+			dir: "desc"
 		}
 	});
     
@@ -1551,6 +1553,7 @@
 		$('#novoTurno').click(function() {
 			viewModel.dsEscala.add(
 				{
+				Id: 0,
 				EscId: viewModel.lojaSelecionada.get("LojIdPeriodoFuncionamento"),           
 				HfuId: 0,           
 				LojId: viewModel.lojaSelecionada.get("LojId"),           
