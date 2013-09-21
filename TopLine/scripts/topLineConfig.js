@@ -1,5 +1,4 @@
-(function($, undefined) {
-	
+(function($, undefined) {	
 	var domain = "revenue.azurewebsites.net",
 	//var domain = "localhost:63504",
 	
