@@ -1313,6 +1313,9 @@
 					</ul>
 				</li>
 				<li>
+					<div class="divSubTitulo">Telefone</div>
+                </li>
+				<li>
 					<ul class="infoColaborador" data-bind="source: dsTelColaborador" data-role="listview" data-template="tTelColaborador"></ul>
 				</li>
 			</ul>
@@ -1544,7 +1547,7 @@
 						</li>
 					</ul>
 				</li>
-				<li>
+			<!--	<li>
 					<ul>
 						<li>
 							<div class="divSubTitulo">Coordenadas</div>
@@ -1560,7 +1563,7 @@
 							</label> <span data-bind="text: LojLongitude"></span>
 						</li>
 					</ul>
-				</li>
+				</li>-->
 				<li>
 					<ul class="infoLoja" data-bind="source: dsEscala" data-role="listview" data-template="tEscalasLoja"></ul>
 				</li>
@@ -1670,7 +1673,7 @@
 						</li>
 					</ul>
 				</li>
-				<li>
+	<!--			<li>
 					<ul>
 						<li class="subTitulo" style="padding:5px;margin:0;">
 							<a class="subTitulo">Coordenadas</a>
@@ -1689,7 +1692,7 @@
 							<input id="LojLongitude" name="Longitude" type="text" data-bind="value: lojaSelecionada.LojLongitude" disabled />
 						</li>
 					</ul>
-				</li>
+				</li>-->
 				<li>
 					<ul>
 						<li class="subTitulo" style="padding:5px;margin:0;">
@@ -1913,7 +1916,7 @@
 				</li>
 				<li>
 					<label>
-						Escala
+						Dia
 					</label>
 					<span data-bind="text: DsfDescricao"></span>
 				</li>
@@ -1936,9 +1939,9 @@
 				</li>
 				<li>
 					<label>
-						Escala
+						Dia
 					</label>
-					<select id="DsfId" name="DsfId" data-bind="source: diasFunc, value: DsfId" data-text-field="DsfDescricao" data-value-field="DsfId" required ></select>
+					<select id="DsfId" name="DsfId" data-bind="source: diasSemana, value: DsfId" data-text-field="Descricao" data-value-field="Id" required ></select>
 				</li>
 				<li>
 					<label>
@@ -1957,30 +1960,13 @@
 		</script>
 
 		<script type="text/x-kendo-template" id="tTelColaborador">            			
-			<ul class="infoColaborador" data-role="listview">
-				<li>
-					<div class="divSubTitulo">Telefone</div>
-				</li>
+			<ul class="infoColaborador" data-role="listview">				
 				<li>
 					<label>
 						${TteDescricao}
 					</label>
 					<span data-bind="telefoneText: TelNumero"/>
-				</li>
-				<li>
-					<label>
-						Operadora
-					</label>
-					<span data-bind="text: OpeDescricao"/>
-				</li>                                        
-				#if (TceDescricao != null) {#					
-					<li>
-						<label>
-							Marca
-						</label>
-						<span data-bind="text: TceDescricao"/>
-					</li>
-				#}#							
+				</li>				
 			</ul>			
 		</script>
 
@@ -2009,26 +1995,14 @@
 						<label>
 							Tipo
 						</label>
-						<select id="TteId" class="TteId" name="TteId" data-bind="source: tiposTels, value: TteId" data-text-field="DescricaoTipo" data-value-field="IdTipo" placeholder="Tipo de Telefone" required ></select>
+						<select id="TteId" class="TteId" name="TteId" data-bind="source: tiposTelefone, value: TteId" data-text-field="Descricao" data-value-field="Id" placeholder="Tipo de Telefone" required ></select>
 					</li>
 					<li>
 						<label>
 							Número
 						</label>
-						<input id="#= uid #" name="Telefone" type="text" placeholder="Telefone" data-bind="value: TelNumero" required />
-					</li>
-					<li>
-						<label>
-							Operadora
-						</label>
-						<select id="OpeId" name="OpeId" data-bind="source: tiposOper, value: OpeId" data-text-field="DescricaoTipo" data-value-field="IdTipo" placeholder="Operadora" required ></select>
-					</li>
-					<li>
-						<label>
-							Marca
-						</label>
-						<select id="TceId" name="TceId" data-bind="source: tiposCel, value: TceId" data-text-field="DescricaoTipo" data-value-field="IdTipo" placeholder="Tipo Celular"></select>
-					</li>
+						<input class="TelefonesColaborador" id="#= uid #" name="Telefone" type="text" placeholder="Telefone" data-bind="value: TelNumero" required />
+					</li>				
 				</ul>
 				<button id="btnEntrada" data-role="button" class="excluir" data-icon="delete"></button>
 				<div id="divSubTitulo"></div>

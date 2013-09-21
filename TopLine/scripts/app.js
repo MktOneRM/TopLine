@@ -3,7 +3,7 @@
 
 	document.addEventListener("deviceready", function () {
 		app.application = new kendo.mobile.Application(document.body, {
-			transition: "fade",
+			//transition: "overlay:up reverse",
 			loading: '<h1 class="loading-message">Carregando...</h1>', 
 			skin:"flat"
 		});

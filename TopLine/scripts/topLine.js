@@ -246,6 +246,39 @@
 		}
 	};
     
+	//Tipos de Telefones
+	var dataTiposTelefone = [
+		{
+			Id: 1, Descricao: "Residencial"
+		},{
+			Id: 2, Descricao: "Comercial"
+		},{
+			Id: 3, Descricao: "Celular"
+		},{
+			Id: 4, Descricao: "Fax"
+		}
+	]
+	
+	//Schema para tipos de telefone
+	var scTiposTelefone = {
+		model:{
+			id: "Id",
+			fields: {
+				Id: { type: "number"},
+				Descricao: { type: "string"}  
+			}
+		}
+	};
+	
+	//Datasource para tipos de telefone
+	var dsTiposTelefone = new kendo.data.DataSource({ 
+		data: dataTiposTelefone,
+		schema: scTiposTelefone,
+		change: function (e) {						
+			viewModel.set("tiposTelefone", this.view());
+		}
+	});
+	
 	var dataUf = [
 		{ Uf: "AL",Desc:"Alagoas"},
 		{ Uf: "AP",Desc:"Amapá"},
@@ -296,12 +329,12 @@
 	//Dados dias da Semana.
 	var dataDiasSemana = [
 		{Id: 1, Descricao: "Domingo"},
-		{Id: 1, Descricao: "Segunda-Feira"},
-		{Id: 1, Descricao: "Terça-Feira"},
-		{Id: 1, Descricao: "Quarta-Feira"},
-		{Id: 1, Descricao: "Quinta-Feira"},
-		{Id: 1, Descricao: "Sexta-Feira"},
-		{Id: 1, Descricao: "Sábado"},
+		{Id: 2, Descricao: "Segunda-Feira"},
+		{Id: 3, Descricao: "Terça-Feira"},
+		{Id: 4, Descricao: "Quarta-Feira"},
+		{Id: 5, Descricao: "Quinta-Feira"},
+		{Id: 6, Descricao: "Sexta-Feira"},
+		{Id: 7, Descricao: "Sábado"},
     
 	];
     
@@ -418,18 +451,7 @@
 			} 
 		}
 	};
-    
-	//Schema Dias da semana de funcionamento
-	var scDiasFunc = { 
-		model: {
-			id: "DsfId",
-			fields: {
-				DsfId: { editable: false, nullable: false },
-				DsfDescricao: { editable: false, nullable: false }
-			} 
-		}
-	};
-    
+
 	//Schema de cargos
 	var scEscala = { 
 		model: {
@@ -498,10 +520,19 @@
 				LojLatitude: { type: "text", validation: { required: false} },            
 				LojLongitude: { type: "text", validation: { required: false} }, 
 				LojDtcadastro:{ type: "date" },  
-				LojIdCalendario: { type: "int",  editable: true, validation: { required: true, min: 0} },            
-				LojCalendario: { type: "string", editable: true, validation: { required: true} }
+				LojIdPeriodoFuncionamento: { type: "int",  editable: true, validation: { required: true, min: 0} },
+				PeriodosFuncionamento: []
+				
 			}     
 		}
+		/*
+		,
+		data: function(response){
+		dsEscala.read();
+		console.log(response, "res");
+		return response.results; 
+		}
+		*/
 	};
     
 	var scColaborador = {
@@ -538,11 +569,7 @@
 				ColId: { type: "int", nullable: false},
 				TteId: { type: "int", validation: { required: true} },  
 				TteDescricao: { type: "string", validation: { required: true} },
-				TelNumero: { type: "string", validation: { required: true} },  
-				OpeId: { type: "int", validation: { required: true}},  
-				OpeDescricao: { type: "string", validation: { required: true} },                                
-				TceId: { type: "int" , nullable: true},  
-				TceDescricao: { type: "string" , nullable: true }
+				TelNumero: { type: "string", validation: { required: true} }
 			}
 		}
 	}
@@ -742,11 +769,12 @@
 	
 	//Dados para Turnos de Funcionamento.
 	var dataTurnosFunc = [
-		{ TufId:1, TufDescricao:"1º Turno"},
-		{ TufId:2, TufDescricao:"2º Turno"},
-		{ TufId:3, TufDescricao:"3º Turno"},
-		{ TufId:3, TufDescricao:"4º Turno"},
-		{ TufId:3, TufDescricao:"Turno Único"}
+		{ TufId:1, TufDescricao:"Turno Único"},	
+		{ TufId:2, TufDescricao:"1º Turno"},
+		{ TufId:3, TufDescricao:"2º Turno"},
+		{ TufId:4, TufDescricao:"3º Turno"},
+		{ TufId:5, TufDescricao:"4º Turno"},
+		
 	];
     
 	//dataSource Turnos de funcionamento
@@ -793,22 +821,6 @@
 	});
     
 	dsTurnosLoja.bind("error", DataSource_Error);
-	
-	//Dados para Dias da Semana de Funcionamento
-	var dataDiasFunc = [
-		{ DsfId:1, DsfDescricao:"Segunda a Sexta"},
-		{ DsfId:2, DsfDescricao:"Sábado"},
-		{ DsfId:3, DsfDescricao:"Domingo/Feriado"}
-	];
-    
-	//dataSource Dias da Semana de Funcionamento
-	var dsDiasFunc = new kendo.data.DataSource({                    
-		data: dataDiasFunc,
-		schema: scDiasFunc,
-		change: function(e) {
-			viewModel.set("diasFunc", this.view());
-		}
-	});
     
 	//dataSource para gravacao de Horarios Funcionamento
 	var dsEscala = new kendo.data.DataSource({                    
@@ -816,18 +828,6 @@
 			read:  {
 				url: viewModelUrl.serviceUrl + "/RmEscalas",							
 				type:"GET"      
-				,contentType: "application/json"
-				,dataType: "json"
-			},
-			create:  {
-				url: viewModelUrl.serviceUrl + "/RmEscalas",							
-				type:"POST"      
-				,contentType: "application/json"
-				,dataType: "json"
-			},
-			update:  {
-				url: viewModelUrl.serviceUrl + "/RmEscalas",							
-				type:"PUT"      
 				,contentType: "application/json"
 				,dataType: "json"
 			},
@@ -846,7 +846,7 @@
 			viewModel.set("escalas", this.view());
 		},                       
 		sort: {
-			field:"EscId", 
+			field:"TufId", 
 			dir: "asc"
 		}
 	});
@@ -922,6 +922,13 @@
 				type:"PUT"
 				,contentType:"application/json"
 				,dataType: "json"
+			}
+			,
+			create: {
+				url:viewModelUrl.serviceUrl + "/RmLoja",							
+				type:"POST"
+				,contentType:"application/json"
+				,dataType: "json"
 			},
 			parameterMap: function(data, operation) {
 				if (operation == "read")
@@ -936,8 +943,11 @@
 		batch: true,
 		schema: scLoja,
 		change: function(e) {            
-			viewModel.set("lojaSelecionada", e.items[0]);					
+			var view = this.view();
+			console.log(view);
+			viewModel.set("lojaSelecionada", view[0]);								
 		}
+		
 		/*,
 		error: function(e) {			
 		if (e.errorThrown == "Not Found") {
@@ -1142,9 +1152,9 @@
 		dsTiposContato:dsTiposContato,
 		tiposContato: [],
         
-		diasFunc: [],
-		dsDiasFunc: dsDiasFunc,
-        
+		dsTiposTelefone: dsTiposTelefone,
+		tiposTelefone: [],
+	
 		frequenciaContato: [],
 		dsFrequenciaContato: dsFrequenciaContato,
         
@@ -1412,10 +1422,6 @@
 	}
 
 	function editorColViewShow() {
-		/*        var formatedValue = kendo.toString(viewModel.colaboradorSelecionado.ColDtnascimento, "yyyy-MM-dd"); 
-		viewModel.set("confirma", false);
-		viewModel.colaboradorSelecionado.set("ColDtnascimento", formatedValue);
-		viewModel.colaboradorSelecionado.set("ColDtentrada", formatedValue);*/
 		$("#sexoId").find("option[value='" + viewModel.colaboradorSelecionado.get("ColSexo") + "']").attr("selected", true);
 		$("#cargoId").find("option[value=" + viewModel.colaboradorSelecionado.get("CarId") + "]").attr("selected", true);
 		$("#turnoId").find("option[value=" + viewModel.colaboradorSelecionado.get("ColHfuId") + "]").attr("selected", true);
@@ -1459,12 +1465,9 @@
 				ColId: viewModel.colaboradorSelecionado.get("ColId"), 
 				TteId: null, 
 				TteDescricao: null,  
-				TelNumero: null, 
-				OpeId: null, 
-				OpeDescricao: null, 
-				TceId: null, 
-				TceDescricao: null  
+				TelNumero: null
 			});  
+			/*editorEvents();*/
 			return false;
 		});
         
@@ -1548,7 +1551,7 @@
 		$('#novoTurno').click(function() {
 			viewModel.dsEscala.add(
 				{
-				EscId: 0,           
+				EscId: viewModel.lojaSelecionada.get("LojIdPeriodoFuncionamento"),           
 				HfuId: 0,           
 				LojId: viewModel.lojaSelecionada.get("LojId"),           
 				TufId: 0,           
@@ -1564,8 +1567,7 @@
 		
 		view.element.find("#editorLoja").data("kendoMobileButton").bind("click", function() {			
 			dsLoja.one("change", function() {				
-				view.loader.hide();
-				dsEscala.sync(); 
+				view.loader.hide();				
 				if (validatorLoja.validate() && validatorTurno.validate()) {
 					app.application.navigate("#detalhesLoja-view");
 				}
@@ -1574,7 +1576,9 @@
 			view.loader.show();
 			
 			if (validatorLoja.validate() && validatorTurno.validate()) {
-				dsLoja.sync();
+				viewModel.lojaSelecionada.set("PeriodosFuncionamento", viewModel.escalas);				
+				dsLoja.sync();		
+				dsEscala.read();
 			}
 			else {
 				view.loader.hide();		
@@ -1889,6 +1893,29 @@
 			app.application.navigate("#MotNaoVenda-view");
 		}    
 	} 
+
+	// jQuery Masked Input
+	function editorEvents() {
+		var myList = document.getElementsByClassName("TelefonesColaborador"); // get all p elements
+
+		for (i = 0; i < myList.length; i++) {
+			var id = '#' + myList[i].id;
+			
+			$(id).focusout(function() {
+				var phone, element;
+				element = $(id);
+				element.unmask();
+				phone = element.val().replace(/\D/g, '');
+				
+				if (phone.length > 10) {
+					element.mask("(99) 99999-999?9");
+				}
+				else {
+					element.mask("(99) 9999-9999?9");
+				}
+			}).trigger('focusout');
+		}
+	}
 	
 	//Valor fixo, pois o Código da Loja virá conforme cadastro do dispositivo.
 	viewModel.set("idLoja", 1);
@@ -1901,10 +1928,12 @@
 	viewModel.dsSexo.read();			
 	viewModel.dsTurnosFunc.read();			
 	viewModel.dsTurnosLoja.read();
-	viewModel.dsDiasFunc.read();
 			
 	viewModel.set("tipoCompl", 1);
 	viewModel.dsTelCompl.read();
+	
+	viewModel.dsTiposTelefone.read();
+	
 	viewModel.dsTiposMovto.read(); 
 	viewModel.dsTiposContato.read();
     
@@ -1945,7 +1974,9 @@
 		entrarFilaViewShow: entrarFilaViewShow,
 		switchChange: switchChange,
 		
-		showPeriodosFuncionamento: showPeriodosFuncionamento
+		showPeriodosFuncionamento: showPeriodosFuncionamento,
+		
+		editorEvents: editorEvents
         
         
 		
