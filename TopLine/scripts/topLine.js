@@ -465,8 +465,7 @@
 				DsfId: { type: "int", validation: { required: true} },
 				DsfDescricao: { type: "string" },
 				EscHrInicial: { type: "time", validation: { required: true} },
-				EscHrFinal: { type: "time",  validation: { required: true} },
-				Sequencia: { type: "number", defaultValue: 0 },
+				EscHrFinal: { type: "time",  validation: { required: true} }
 			} 
 		}
 	};    
