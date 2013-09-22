@@ -12,7 +12,7 @@
 
 		<script src="scripts/topLineCamera.js" type="text/javascript"></script>
 		<script src="scripts/topLineGeolocation.js" type="text/javascript"></script>
-	
+
 	</head>
 	<body>
 		<!-- Home-Layout -->
@@ -1314,7 +1314,7 @@
 				</li>
 				<li>
 					<div class="divSubTitulo">Telefone</div>
-                </li>
+				</li>
 				<li>
 					<ul class="infoColaborador" data-bind="source: dsTelColaborador" data-role="listview" data-template="tTelColaborador"></ul>
 				</li>
@@ -1435,14 +1435,63 @@
 							</label>
 							<select id="cargoId" name="Cargo" data-bind="source: cargos, value: colaboradorSelecionado.CarId" data-text-field="CarDescricao" data-value-field="CarId"></select>
 						</li>
+						<!--<li>
+						<label>
+						Turno
+						</label>
+						<select id="turnoId" name="Turno" data-bind="source: turnosLoja, value: colaboradorSelecionado.ColHfuId" data-text-field="TufDescricao" data-value-field="TufId"></select>
+						</li>-->
+					</ul>
+				</li>
+				<!--<li>
+					<ul>
+						<li>
+							<div class="divSubTitulo">Dia X Turno</div>
+						</li>						
 						<li>
 							<label>
-								Turno
+								Domingo
+							</label>
+							<select id="turnoId" name="Turno" data-bind="source: turnosLoja, value: colaboradorSelecionado.ColHfuId" data-text-field="TufDescricao" data-value-field="TufId"></select>
+						</li>
+						<li>
+							<label>
+								Segunda
+							</label>
+							<select id="turnoId" name="Turno" data-bind="source: turnosLoja, value: colaboradorSelecionado.ColHfuId" data-text-field="TufDescricao" data-value-field="TufId"></select>
+						</li>
+						<li>
+							<label>
+								Terça
+							</label>
+							<select id="turnoId" name="Turno" data-bind="source: turnosLoja, value: colaboradorSelecionado.ColHfuId" data-text-field="TufDescricao" data-value-field="TufId"></select>
+						</li>
+						<li>
+							<label>
+								Quarta
+							</label>
+							<select id="turnoId" name="Turno" data-bind="source: turnosLoja, value: colaboradorSelecionado.ColHfuId" data-text-field="TufDescricao" data-value-field="TufId"></select>
+						</li>
+						<li>
+							<label>
+								Quinta
+							</label>
+							<select id="turnoId" name="Turno" data-bind="source: turnosLoja, value: colaboradorSelecionado.ColHfuId" data-text-field="TufDescricao" data-value-field="TufId"></select>
+						</li>
+						<li>
+							<label>
+								Sexta
+							</label>
+							<select id="turnoId" name="Turno" data-bind="source: turnosLoja, value: colaboradorSelecionado.ColHfuId" data-text-field="TufDescricao" data-value-field="TufId"></select>
+						</li>
+						<li>
+							<label>
+								Sábado
 							</label>
 							<select id="turnoId" name="Turno" data-bind="source: turnosLoja, value: colaboradorSelecionado.ColHfuId" data-text-field="TufDescricao" data-value-field="TufId"></select>
 						</li>
 					</ul>
-				</li>
+				</li>-->
 				<li>
 					<ul>
 						<li class="subTitulo" style="padding:5px;margin:0;">
@@ -1547,22 +1596,22 @@
 						</li>
 					</ul>
 				</li>
-			<!--	<li>
-					<ul>
-						<li>
-							<div class="divSubTitulo">Coordenadas</div>
-						</li>
-						<li>
-							<label>
-								Latitude
-							</label><span data-bind="text: LojLatitude"></span>
-						</li>
-						<li>
-							<label>
-								Longitude
-							</label> <span data-bind="text: LojLongitude"></span>
-						</li>
-					</ul>
+				<!--	<li>
+				<ul>
+				<li>
+				<div class="divSubTitulo">Coordenadas</div>
+				</li>
+				<li>
+				<label>
+				Latitude
+				</label><span data-bind="text: LojLatitude"></span>
+				</li>
+				<li>
+				<label>
+				Longitude
+				</label> <span data-bind="text: LojLongitude"></span>
+				</li>
+				</ul>
 				</li>-->
 				<li>
 					<ul class="infoLoja" data-bind="source: dsEscala" data-role="listview" data-template="tEscalasLoja"></ul>
@@ -1673,25 +1722,25 @@
 						</li>
 					</ul>
 				</li>
-	<!--			<li>
-					<ul>
-						<li class="subTitulo" style="padding:5px;margin:0;">
-							<a class="subTitulo">Coordenadas</a>
-							<a id="lerCoordenadas" data-role="detailbutton" class="subTitulo" data-icon="globe">&nbsp;</a>
-						</li>
-						<li>
-							<label>
-								Latitude
-							</label>
-							<input id="LojLatitude" name="Latitude" type="text" data-bind="value: lojaSelecionada.LojLatitude" disabled />
-						</li>
-						<li>
-							<label>
-								Longitude
-							</label>
-							<input id="LojLongitude" name="Longitude" type="text" data-bind="value: lojaSelecionada.LojLongitude" disabled />
-						</li>
-					</ul>
+				<!--			<li>
+				<ul>
+				<li class="subTitulo" style="padding:5px;margin:0;">
+				<a class="subTitulo">Coordenadas</a>
+				<a id="lerCoordenadas" data-role="detailbutton" class="subTitulo" data-icon="globe">&nbsp;</a>
+				</li>
+				<li>
+				<label>
+				Latitude
+				</label>
+				<input id="LojLatitude" name="Latitude" type="text" data-bind="value: lojaSelecionada.LojLatitude" disabled />
+				</li>
+				<li>
+				<label>
+				Longitude
+				</label>
+				<input id="LojLongitude" name="Longitude" type="text" data-bind="value: lojaSelecionada.LojLongitude" disabled />
+				</li>
+				</ul>
 				</li>-->
 				<li>
 					<ul>
@@ -1960,13 +2009,13 @@
 		</script>
 
 		<script type="text/x-kendo-template" id="tTelColaborador">            			
-			<ul class="infoColaborador" data-role="listview">				
+			<ul class="infoColaborador" data-role="listview">
 				<li>
 					<label>
 						${TteDescricao}
 					</label>
 					<span data-bind="telefoneText: TelNumero"/>
-				</li>				
+				</li>
 			</ul>			
 		</script>
 
@@ -2002,7 +2051,7 @@
 							Número
 						</label>
 						<input class="TelefonesColaborador" id="#= uid #" name="Telefone" type="text" placeholder="Telefone" data-bind="value: TelNumero" required />
-					</li>				
+					</li>
 				</ul>
 				<button id="btnEntrada" data-role="button" class="excluir" data-icon="delete"></button>
 				<div id="divSubTitulo"></div>

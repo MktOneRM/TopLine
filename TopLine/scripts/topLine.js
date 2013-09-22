@@ -533,6 +533,7 @@
 		return response.results; 
 		}
 		*/
+		
 	};
     
 	var scColaborador = {
@@ -843,8 +844,7 @@
 		batch: true,
 		schema: scEscala,
 		change:function(e) {
-			viewModel.set("escalas", this.view());
-			console.log(viewModel);
+			viewModel.set("escalas", this.view());			
 		},                       
 		sort: {
 			field:"Id", 
@@ -944,8 +944,7 @@
 		batch: true,
 		schema: scLoja,
 		change: function(e) {            
-			var view = this.view();
-			console.log(view);
+			var view = this.view();			
 			viewModel.set("lojaSelecionada", view[0]);								
 		}
 		
