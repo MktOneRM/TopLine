@@ -4,12 +4,12 @@ function id(element) {
 	return document.getElementById(element);
 }
 
-function onDeviceReady() {
+function onDeviceReady() {    
 	cameraApp = new cameraApp();
 	cameraApp.run();
 }
 
-function cameraApp() {
+function cameraApp() {        
 }
 
 cameraApp.prototype = {
@@ -18,6 +18,7 @@ cameraApp.prototype = {
 	_destinationType: null,
     
 	run: function() {
+        
 		var that = this;
 		that._pictureSource = navigator.camera.PictureSourceType;
 		that._destinationType = navigator.camera.DestinationType;
