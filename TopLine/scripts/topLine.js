@@ -1930,8 +1930,8 @@
 	viewModel.dsTurnosFunc.read();			
 	viewModel.dsTurnosLoja.read();
 			
-	viewModel.set("tipoCompl", 1);
-	viewModel.dsTelCompl.read();
+/*	viewModel.set("tipoCompl", 1);
+	viewModel.dsTelCompl.read();*/
 	
 	viewModel.dsTiposTelefone.read();
 	
